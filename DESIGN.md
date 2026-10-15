@@ -24,38 +24,53 @@ colors:
   focus: "#63872d"
 typography:
   display:
-    fontFamily: "'Fraunces', serif"
+    fontFamily: "'Fredoka', 'Rubik', sans-serif"
     fontSize: "clamp(50px,5.4vw,78px)"
-    fontWeight: 600
-    lineHeight: 1.04
-    letterSpacing: "-.035em"
+    fontWeight: 700
+    lineHeight: 1.08
+    letterSpacing: "-.01em"
   headline:
-    fontFamily: "'Fraunces', serif"
+    fontFamily: "'Rubik', sans-serif"
     fontSize: "43px"
-    fontWeight: 600
+    fontWeight: 700
     lineHeight: 1.1
-    letterSpacing: "-.035em"
+    letterSpacing: "-.02em"
   proposal:
-    fontFamily: "'Fraunces', serif"
+    fontFamily: "'Rubik', sans-serif"
     fontSize: "31px"
-    fontWeight: 600
+    fontWeight: 700
     lineHeight: 1.22
-    letterSpacing: "-.035em"
+    letterSpacing: "-.015em"
   title:
-    fontFamily: "'DM Sans', sans-serif"
+    fontFamily: "'Rubik', sans-serif"
     fontSize: "17px"
     fontWeight: 500
     lineHeight: 1.35
   body:
-    fontFamily: "'DM Sans', sans-serif"
+    fontFamily: "'Rubik', sans-serif"
     fontSize: "16px"
     fontWeight: 400
     lineHeight: 1.6
   label:
-    fontFamily: "'DM Sans', sans-serif"
+    fontFamily: "'Fredoka', 'Rubik', sans-serif"
     fontSize: "15px"
+    fontWeight: 600
+    lineHeight: 1.6
+  meta:
+    fontFamily: "'IBM Plex Mono', monospace"
+    fontSize: "11px"
     fontWeight: 500
     lineHeight: 1.6
+  lcd:
+    fontFamily: "'DotGothic16', monospace"
+    fontSize: "9px"
+    fontWeight: 400
+    lineHeight: 1.4
+  wordmark:
+    fontFamily: "'DM Sans', sans-serif"
+    fontSize: "30px"
+    fontWeight: 700
+    lineHeight: 1
 rounded:
   paper: "14px"
   stage: "18px"
@@ -147,7 +162,7 @@ components:
 
 O voteAI transforma a comparação de propostas em uma leitura tranquila e pessoal. Papel claro, tinta verde profunda e títulos editoriais dão à interface a presença de um caderno aberto; controles claros mantêm o ritmo de uma proposta por vez. A expressão visual sustenta a escolha confirmada pelo usuário: identidade própria, leitura confortável e construção diretamente no código.
 
-Fraunces traz voz às ideias; DM Sans torna ações, contexto e números fáceis de reconhecer. A profundidade é discreta nas superfícies de leitura e física na urna brasileira da revelação. Retratos recebem o mesmo recorte e tratamento em escala de cinza. A autoria oculta durante as respostas e a igualdade de exposição dos candidatos são compromissos do produto que também orientam a hierarquia visual.
+Fredoka, arredondada e amigável, dá voz aos títulos e aos botões; Rubik em negrito carrega as ideias e o texto corrido; IBM Plex Mono marca etiquetas e contadores; DotGothic16 dá ao visor da urna a cara de tela eletrônica. A profundidade é discreta nas superfícies de leitura e física na urna brasileira da revelação. Retratos recebem o mesmo recorte e tratamento em escala de cinza. A autoria oculta durante as respostas e a igualdade de exposição dos candidatos são compromissos do produto que também orientam a hierarquia visual.
 
 **Key Characteristics:**
 
@@ -188,19 +203,22 @@ A paleta usa verdes naturais sobre papel morno, com contraste firme e um acento 
 
 ## Typography
 
-**Display Font:** Fraunces, com fallback serif.
-**Body Font:** DM Sans, com fallback sans-serif.
+**Display Font:** Fredoka (700), com fallback Rubik e sans-serif. Títulos principais, botões e teclas da urna.
+**Body Font:** Rubik (300 a 900), com fallback system-ui. Texto corrido, subtítulos (700) e o texto da proposta (700).
+**Meta Font:** IBM Plex Mono (500). Tema e autoria da carta, contador de propostas, etiquetas, legendas da urna e números das tabelas.
+**LCD Font:** DotGothic16 (400). Tudo o que aparece no visor da urna: rótulos, dígitos, candidato e FIM.
+**Wordmark:** DM Sans, só no nome "voteAI" ao lado do símbolo, para casar com o logo de `brand/logos/`.
 
-**Character:** Os títulos têm curvas editoriais e itálico expressivo. Texto de apoio e controles mantêm formas simples, peso contido e leitura direta. As fontes são arquivos locais, com `font-display: swap`.
+**Character:** Os títulos são arredondados, cheios e diretos; a ênfase vem da cor (lima no verde, verde no papel), nunca do itálico, porque a Fredoka não tem itálico. Texto de apoio e controles mantêm formas simples e leitura direta. As fontes são arquivos WOFF2 locais em `dist/assets/fonts/`, nos recortes latino e latino estendido, com `font-display: swap`; Rubik é pré-carregada.
 
 ### Hierarchy
 
 - **Display:** título principal fluido, com peso (600), entrelinha (1.04) e espaçamento negativo. No celular, a landing usa `clamp(37px,10.6vw,46px)` e entrelinha (1.06), para que título, botão e carta de demonstração caibam na primeira tela.
-- **Headline:** cabeçalhos de seção em Fraunces; a base documentada é a seção explicativa. Outras hierarquias reais usam (31px), (32px), (36px), (42px), (49px) ou (62px) conforme função.
+- **Headline:** cabeçalhos de seção em Rubik (700); a base documentada é a seção explicativa. Outras hierarquias reais usam (31px), (32px), (36px), (42px), (49px) ou (62px) conforme função.
 - **Proposal:** ideia durante o teste, (31px) no desktop; no celular acompanha a altura da tela com `clamp(23px,3.9dvh,32px)` e entrelinha (1.24). A carta de demonstração tem tamanho próprio de (29px), reduzido a (21px) na landing do celular.
-- **Title:** títulos operacionais dos passos em DM Sans, sem competir com a proposta.
+- **Title:** títulos operacionais dos passos em Rubik, sem competir com a proposta.
 - **Body:** texto global; contextos locais variam entre (12px) e (17px). Descrições usam `muted`, entrelinhas generosas e medidas observadas de (30ch), (40ch), (50ch), (70ch) ou (75ch) conforme o bloco.
-- **Label:** referência de botões e respostas; metadados usam tamanhos menores. Percentuais e progresso usam numerais tabulares. O LCD e o teclado permanecem em DM Sans, com tamanhos proporcionais ao aparelho.
+- **Label:** botões e respostas em Fredoka (600). Metadados usam IBM Plex Mono em tamanhos menores; percentuais grandes usam Fredoka e contadores usam numerais tabulares. As teclas da urna usam Fredoka (700); o visor usa DotGothic16, com rótulos de (9px), ou (10px) na urna do celular.
 
 **The Ideia em Destaque Rule.** Dê à proposta a maior presença tipográfica da carta; mantenha tema, anonimato, contexto e rodapé subordinados.
 
@@ -260,7 +278,7 @@ A busca tem borda fina, raio de campo, ícone de linha e fundo transparente. O f
 
 ### Navigation
 
-Navegação discreta em DM Sans, tamanho (14px), peso (500), com sublinhado em hover. No teste, a ação é Salvar e sair. No celular, o link da explicação inicial some, os intervalos diminuem e a marca mantém presença; no teste e na urna, o rótulo Brasil 2026 também some. A indicação de etapas usa círculos numerados, confirmação e verde para progresso; não depende apenas da cor.
+Navegação discreta em Rubik, tamanho (14px), peso (500), com sublinhado em hover. No teste, a ação é Salvar e sair. No celular, o link da explicação inicial some, os intervalos diminuem e a marca mantém presença; no teste e na urna, o rótulo Brasil 2026 também some. A indicação de etapas usa círculos numerados, confirmação e verde para progresso; não depende apenas da cor.
 
 ### Response Controls
 
@@ -290,7 +308,8 @@ O vídeo Hyperframes usa quadro 16:9 de 1280×720, duração de 18s, textos em p
 
 ### Do:
 
-- **Do** preserve papel claro, verde profundo e a relação Fraunces/DM Sans em novas superfícies.
+- **Do** preserve papel claro, verde profundo e os papéis das fontes (Fredoka, Rubik, IBM Plex Mono e DotGothic16) em novas superfícies.
+- **Do** escreva propostas e contextos em português do dia a dia: troque termos técnicos e jurídicos por palavras comuns e explique no contexto o nome que não puder sair.
 - **Do** preserve a altura das cartas e permita rolagem interna do texto longo sem mover os botões.
 - **Do** mantenha a votação e a urna do celular dentro de uma tela; se faltar espaço, retire informação do topo antes de deixar a página rolar.
 - **Do** use o símbolo "Urna" a partir dos arquivos de `brand/logos/`, sem redesenhar.

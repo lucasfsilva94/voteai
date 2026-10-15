@@ -1,8 +1,15 @@
+/* Type system: Rubik (text), Fredoka (titles, buttons), IBM Plex Mono (small labels), DotGothic16 (urn display). DM Sans stays only for the wordmark. */
+@font-face{font-family:'DotGothic16';src:url('./assets/fonts/dotgothic16-latin-ext.woff2') format('woff2');font-weight:400;font-display:swap;unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'DotGothic16';src:url('./assets/fonts/dotgothic16-latin.woff2') format('woff2');font-weight:400;font-display:swap;unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Fredoka';src:url('./assets/fonts/fredoka-latin-ext.woff2') format('woff2');font-weight:300 700;font-display:swap;unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Fredoka';src:url('./assets/fonts/fredoka-latin.woff2') format('woff2');font-weight:300 700;font-display:swap;unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'IBM Plex Mono';src:url('./assets/fonts/ibmplexmono-500-latin-ext.woff2') format('woff2');font-weight:500;font-display:swap;unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'IBM Plex Mono';src:url('./assets/fonts/ibmplexmono-500-latin.woff2') format('woff2');font-weight:500;font-display:swap;unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Rubik';src:url('./assets/fonts/rubik-latin-ext.woff2') format('woff2');font-weight:300 900;font-display:swap;unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Rubik';src:url('./assets/fonts/rubik-latin.woff2') format('woff2');font-weight:300 900;font-display:swap;unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
 @font-face{font-family:DM Sans;src:url('./assets/dm-sans.ttf') format('truetype');font-weight:400;font-display:swap}
 @font-face{font-family:DM Sans;src:url('./assets/dm-sans-bold.ttf') format('truetype');font-weight:500 800;font-display:swap}
-@font-face{font-family:Fraunces;src:url('./assets/fraunces.ttf') format('truetype');font-weight:600;font-display:swap}
-@font-face{font-family:Fraunces;src:url('./assets/fraunces-italic.ttf') format('truetype');font-style:italic;font-weight:600;font-display:swap}
-:root{--paper:#f6f5ee;--white:#fffef9;--ink:#173d2f;--green:#194b39;--muted:#59695e;--sage:#e4e9dd;--lime:#e2efbb;--line:#d5dacf;--orange:#995c34;--font-body:'DM Sans',sans-serif;--font-display:'Fraunces',serif;--ease:cubic-bezier(.16,1,.3,1);--radius:14px;color-scheme:light}
+:root{--paper:#f6f5ee;--white:#fffef9;--ink:#173d2f;--green:#194b39;--muted:#59695e;--sage:#e4e9dd;--lime:#e2efbb;--line:#d5dacf;--orange:#995c34;--font-body:'Rubik',system-ui,-apple-system,'Segoe UI',sans-serif;--font-display:'Fredoka','Rubik',system-ui,sans-serif;--font-mono:'IBM Plex Mono',ui-monospace,Consolas,monospace;--font-pixel:'DotGothic16','Courier New',monospace;--font-brand:'DM Sans',sans-serif;--ease:cubic-bezier(.16,1,.3,1);--radius:14px;color-scheme:light}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:24px}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
@@ -335,3 +342,19 @@ h1 em,h2 em{font-weight:600;color:var(--green)}
 .brand-symbol{background:none;border-radius:0}
 .brand-symbol svg{width:100%;height:100%;display:block}
 .brand-small .brand-symbol{width:26px;height:26px;margin-right:2px}
+
+/* Type roles: Fredoka for the page title, buttons and urn keys; Rubik bold for headings and the proposal;
+   IBM Plex Mono for small labels and counters; DotGothic16 on the urn display. */
+h1{font-family:var(--font-display);font-weight:700;letter-spacing:-.01em;line-height:1.08}
+h2,h3{font-family:var(--font-body);font-weight:700;letter-spacing:-.02em}
+h1 em,h2 em{font-style:normal}
+.brand{font-family:var(--font-brand)}
+.quiz-paper .proposal-copy h2,.preview-proposal{font-family:var(--font-body);font-weight:700;letter-spacing:-.015em;line-height:1.22}
+.button,.choice,.hero-cta{font-family:var(--font-display);font-weight:600;letter-spacing:.005em}
+.score-info strong{font-family:var(--font-display);font-weight:600}
+.topic,.anonymous,.progress-meta>span,.election-label,.answer-badge,.source-topic,.theme-bars small,.result-badge,.machine-top,.keypad-title,.machine-bottom,.source-count,.choice small{font-family:var(--font-mono);font-weight:500;letter-spacing:0}
+.number-keys button,.function-keys button{font-family:var(--font-display);font-weight:700}
+.machine-screen,.machine-screen strong,.machine-screen b,.sim-role{font-family:var(--font-pixel);font-weight:400;letter-spacing:.02em}
+.lcd-label{font-size:9px}
+.sim-fim strong{letter-spacing:.18em}
+@media(max-width:650px){body[data-view=urn] .lcd-label{font-size:10px}.result-device .lcd-label{font-size:7px}}

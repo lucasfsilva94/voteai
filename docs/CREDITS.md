@@ -11,6 +11,7 @@ O texto das propostas é reescrito para o voteAI; os contextos são notas factua
 - Flávio Bolsonaro: Agência Senado, licença Atribuição. https://commons.wikimedia.org/wiki/File:Foto_oficial_do_senador_Fl%C3%A1vio_Bolsonaro_(v._AgSen).jpg
 
 ## Fontes tipográficas e som
-- DM Sans e Fraunces: Google Fonts, SIL Open Font License, auto-hospedadas.
+- Rubik, Fredoka, IBM Plex Mono e DotGothic16 (site) e DM Sans (nome no logo): Google Fonts, SIL Open Font License, auto-hospedadas em `dist/assets/fonts/` e `dist/assets/`, com as licenças ao lado dos arquivos.
+- Fraunces: usada só no traçado do conceito de logo "Folha", em `brand/logos/`; SIL Open Font License.
 - Som de confirmação: gravação da urna eletrônica, https://www.myinstants.com/pt/instant/urna-eletronica-confirma/
 - Bipe das teclas na simulação: sintetizado no navegador.
