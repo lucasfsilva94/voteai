@@ -1,7 +1,7 @@
 import type { CSSProperties, ReactNode } from 'react'
 import { ANSWERS } from '../../lib/engine.ts'
 import type { Answer } from '../../lib/types.ts'
-import './Note.css'
+import './Note.scss'
 
 /**
  * A pad of sticky notes: up to three notes peek out behind the top one, and the pad edge (one hairline per

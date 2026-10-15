@@ -1,0 +1,301 @@
+@use '../../styles/abstracts' as *;
+
+.urn-page {
+  padding-bottom: 56px;
+  text-align: center;
+}
+
+.urn-heading {
+  margin: 40px 0 35px;
+
+  h1 {
+    font-size: 49px;
+  }
+
+  p {
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 18px;
+  }
+}
+
+.urn-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin-top: 30px;
+  min-height: 54px;
+}
+
+.urn-disclaimer {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 18px;
+}
+
+@include below(sm) {
+  .urn-heading {
+    margin: 33px 0 30px;
+
+    h1 {
+      font-size: 34px;
+      line-height: 1.14;
+    }
+
+    p {
+      font-size: 12px;
+      max-width: 34ch;
+      margin: 16px auto 0;
+    }
+  }
+
+  .urn-actions {
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 29px;
+
+    .button {
+      font-size: 13px;
+      min-width: 260px;
+    }
+  }
+
+  .urn-disclaimer {
+    font-size: 9px;
+    max-width: 32ch;
+    margin: 19px auto 0;
+  }
+
+  body[data-view=urn] {
+    .urn-page {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: max(12px, env(safe-area-inset-bottom));
+    }
+
+    .flow-steps {
+      padding-top: 4px;
+      margin-bottom: 0;
+    }
+
+    .urn-heading {
+      margin: 16px 0 14px;
+
+      h1 {
+        font-size: 25px;
+        line-height: 1.15;
+      }
+
+      p {
+        display: none;
+      }
+    }
+
+    .machine {
+      padding: 10px 10px 8px;
+    }
+
+    .machine-top {
+      font-size: 8px;
+      padding-bottom: 8px;
+
+      > span:first-child {
+        font-size: 13px;
+      }
+    }
+
+    .machine-body {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .machine-screen {
+      min-height: 0;
+      height: 206px;
+      padding: 10px 12px 8px;
+    }
+
+    .lcd-label {
+      padding-bottom: 5px;
+    }
+
+    .keypad {
+      display: grid;
+      grid-template-columns: 1fr 104px;
+      column-gap: 12px;
+      padding: 9px 10px 10px;
+    }
+
+    .keypad-title {
+      grid-column: 1/-1;
+      font-size: 8px;
+      margin-bottom: 8px;
+    }
+
+    .number-keys {
+      max-width: none;
+      margin: 0;
+      gap: 5px;
+
+      button {
+        min-height: 36px;
+        font-size: 19px;
+      }
+    }
+
+    .function-keys {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin: 0;
+      justify-content: space-between;
+
+      button {
+        height: auto;
+        flex: 1;
+        font-size: 9px;
+      }
+
+      .key-green {
+        flex: 1.4;
+        height: auto;
+      }
+    }
+
+    .machine-bottom {
+      font-size: 6px;
+      margin-top: 8px;
+    }
+
+    .urn-actions {
+      margin-top: 6px;
+      min-height: 40px;
+      gap: 20px;
+      flex-direction: row;
+    }
+
+    .urn-disclaimer {
+      margin-top: auto;
+      padding-top: 6px;
+      font-size: 9px;
+    }
+
+    .lcd-label {
+      font-size: 10px;
+    }
+
+    .sim {
+      column-gap: 12px;
+      padding: 8px 0 4px;
+    }
+
+    .sim-main {
+      gap: 7px;
+    }
+
+    .sim-role {
+      font-size: 16px;
+    }
+
+    .sim-field {
+      font-size: 11px;
+    }
+
+    .sim-number b {
+      width: 34px;
+      height: 42px;
+      font-size: 28px;
+    }
+
+    .sim-candidate {
+      font-size: 13px;
+      gap: 2px;
+
+      strong {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+.auto-reveal-label {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+@include below(sm) {
+  @media (max-height: 700px) {
+    body[data-view=urn] {
+      .urn-heading h1 {
+        font-size: 21px;
+      }
+
+      .machine-screen {
+        height: 176px;
+      }
+
+      .number-keys button {
+        min-height: 32px;
+      }
+
+      .sim-main {
+        gap: 5px;
+      }
+
+      .sim-number b {
+        width: 30px;
+        height: 38px;
+        font-size: 25px;
+      }
+
+      .sim {
+        padding: 5px 0 2px;
+      }
+
+      .urn-heading {
+        margin: 12px 0 10px;
+      }
+
+      .urn-actions {
+        margin-top: 2px;
+      }
+    }
+  }
+}
+
+@include below(sm) {
+  body[data-view=urn] .sim-photo {
+    width: 64px;
+    height: 80px;
+  }
+}
+
+@include below(sm) {
+  @media (max-height: 700px) {
+    body[data-view=urn] .sim-photo {
+      width: 56px;
+      height: 70px;
+    }
+  }
+}
+
+@include below(sm) {
+  @media (max-height: 600px) {
+    body[data-view=urn] {
+      .urn-heading {
+        display: none;
+      }
+
+      .flow-steps {
+        padding-bottom: 10px;
+      }
+
+      .number-keys button {
+        min-height: 30px;
+      }
+    }
+  }
+}

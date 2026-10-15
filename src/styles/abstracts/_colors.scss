@@ -1,0 +1,9 @@
+// Translucent ink for shadows and washes; tokens.scss publishes the same color as --ink.
+$ink: #173d2f;
+
+@function ink($alpha) {
+  @return rgba($ink, $alpha);
+}
+
+// The 1px outline that lifts paper off a paper-colored page.
+$hairline: 0 0 0 1px ink(0.08);

@@ -16,7 +16,8 @@
     "test:browser": "node tests/flow.browser.mjs",
     "test:layout": "node tests/layout.browser.mjs",
     "test:animation": "node tests/animation.browser.mjs",
-    "test:video": "node tests/video.browser.mjs"
+    "test:video": "node tests/video.browser.mjs",
+    "test:styles": "node tests/styles.snapshot.mjs"
   },
   "dependencies": {
     "react": "19.3.1",
@@ -29,6 +30,7 @@
     "@types/react-dom": "19.3.0",
     "@vitejs/plugin-react": "6.1.2",
     "playwright": "^1.56.0",
+    "sass-embedded": "1.105.1",
     "typescript": "5.9.3",
     "vite": "8.3.4",
     "vitest": "4.1.11"

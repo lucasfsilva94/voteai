@@ -1,7 +1,7 @@
 import { Link } from 'react-router'
 import { Brand } from '../brand/Brand.tsx'
 import { Icon } from '../Icon.tsx'
-import './Layout.css'
+import './Layout.scss'
 
 export function Footer() {
   return (

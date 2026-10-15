@@ -1,7 +1,7 @@
 import type { IconName } from '../lib/catalog.ts'
 import type { Answer } from '../lib/types.ts'
 import { Icon } from './Icon.tsx'
-import './AnswerButtons.css'
+import './AnswerButtons.scss'
 
 const BUTTONS: { answer: Answer; label: string; aria: string; icon: IconName; key: string; extra?: string }[] = [
   { answer: 'disagree', label: 'Discordo', aria: 'Discordo', icon: 'cross', key: '←' },

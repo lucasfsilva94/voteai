@@ -1,0 +1,74 @@
+@use 'abstracts' as *;
+
+@font-face {
+  font-family: 'DotGothic16';
+  src: url('../assets/fonts/dotgothic16-latin.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Fredoka';
+  src: url('../assets/fonts/fredoka-latin.woff2') format('woff2');
+  font-weight: 300 700;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('../assets/fonts/ibmplexmono-500-latin.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('../assets/fonts/rubik-latin.woff2') format('woff2');
+  font-weight: 300 900;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  --paper: #f6f5ee;
+  --white: #fffef9;
+  --ink: #{$ink};
+  --green: #194b39;
+  --green-dark: #0d3526;
+  --on-green-muted: #d2dfcc;
+  --muted: #59695e;
+  --sage: #e4e9dd;
+  --lime: #e2efbb;
+  --line: #d5dacf;
+  --divider: #b9c4b6;
+  --focus-ring: #63872d;
+  --choice-border: #bcc8b7;
+  --choice-important-border: #c1d38f;
+  --orange: #995c34;
+  --font-body: 'Rubik', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Fredoka', 'Rubik', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, Consolas, monospace;
+  --font-pixel: 'DotGothic16', 'Courier New', monospace;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --radius: 14px;
+  color-scheme: light;
+  --pt-red: #e4142c;
+  --pt-paper: #ffedef;
+  --pl-blue: #004f9f;
+  --pl-green: #009640;
+  --pl-yellow: #ffd500;
+  --pl-paper: #eaf2fb;
+  --electric-lime: #c8ee57;
+  --note: #fffef9;
+  --note-2: #f1f3ea;
+  --note-3: #e7eadf;
+  --note-4: #dde2d2;
+  --note-edge: #cdd4c2;
+  --pt-red-text: #c41026;
+  --lcd: #e8eee0;
+  --lcd-bezel: #b9bbb0;
+  --lcd-rule: #b1bda5;
+}

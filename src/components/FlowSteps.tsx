@@ -1,5 +1,5 @@
 import { Icon } from './Icon.tsx'
-import './FlowSteps.css'
+import './FlowSteps.scss'
 
 // The three steps of the test: opinions, urn, affinity.
 export function FlowSteps({ active }: { active: 1 | 2 | 3 }) {

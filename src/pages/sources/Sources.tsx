@@ -7,7 +7,7 @@ import { AREAS } from '../../lib/engine.ts'
 import type { AreaId } from '../../lib/types.ts'
 import { usePage } from '../../hooks/usePage.ts'
 import { useSession } from '../../state/session.tsx'
-import './Sources.css'
+import './Sources.scss'
 
 const external = { target: '_blank', rel: 'noopener noreferrer' } as const
 

@@ -1,6 +1,6 @@
 import { Link, useLocation, useNavigate } from 'react-router'
 import { Brand } from '../brand/Brand.tsx'
-import './Layout.css'
+import './Layout.scss'
 
 export function Header() {
   const { pathname } = useLocation()
