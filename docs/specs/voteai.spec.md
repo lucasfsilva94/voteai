@@ -44,5 +44,17 @@ Identidade própria inspirada no processo de votação brasileiro, visual sóbri
 ## 6. Revisão de 14/10/2026
 Requisitos RN-06 e RN-10 a RN-13 solicitados diretamente pelo usuário. Formato de vídeo sem locução confirmado. Atualizar documentação e testes antes da publicação. Nenhuma mudança na pontuação.
 
-### Refinamento da landing solicitado na continuação
-Título entra em etapas, com sublinhado desenhado; conjunto de cards flutua suavemente. O vídeo aprovado mantém loop silencioso, sem rodapé de controles: inicia quando pelo menos 45% fica visível, pausa ao sair ou ocultar a aba, retoma ao voltar. Uma ação discreta sobre o vídeo permite pausa pelo teclado e reprodução manual quando movimento reduzido estiver ativo. Movimento reduzido desativa as animações decorativas. Este refinamento substitui os controles de repetir/tela cheia da RN-12.
+### Landing
+A landing do 2º turno (RN-12) substituiu o refinamento anterior de título em etapas e cards flutuantes.
+
+## 7. Requisitos e critérios de aceite
+RF-01: questionário cego com quatro respostas. RF-02: propostas dos mesmos dois candidatos e fontes nos planos de governo. RF-03: revelação animada na urna brasileira. RF-04: revisão e transparência do cálculo. RF-05: retomar localmente e reiniciar. RF-06: após a última resposta, a urna apura automaticamente com o áudio real de confirmação. RF-07: cores partidárias nos resultados. RF-08: cartas estáveis e vídeo explicativo em Remotion na landing. RF-09: interface exclusivamente com a marca voteAI.
+
+- CA-01: dado um teste completo, quando a urna confirma a apuração, então mostra os dois percentuais e o vencedor ou empate.
+- CA-02: dadas somente respostas Não sei, quando concluir, então informa ausência de evidência em vez de escolher candidato.
+- CA-03: dada uma sessão parcialmente respondida, quando recarregar, então oferece retomada no mesmo ponto.
+- CA-04: dadas perguntas curtas e longas, quando alternar entre elas no mesmo viewport, então os botões mantêm posição e o conteúdo permanece legível.
+- CA-05: dada a 25ª resposta, quando registrar, então a urna digita o número, confirma e revela sem clique adicional, com som habilitado salvo preferência de silêncio.
+- CA-06: dado movimento reduzido, quando abrir a landing, então o vídeo permanece pausado com a capa e o controle de reproduzir.
+
+RNF-01: sem envio das respostas. RNF-02: funciona com armazenamento bloqueado. RNF-03: mobile e desktop com teclado e movimento reduzido.

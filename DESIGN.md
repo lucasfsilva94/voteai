@@ -214,7 +214,7 @@ A paleta usa verdes naturais sobre papel morno, com contraste firme e um acento 
 **Body Font:** Rubik (300 a 900), com fallback system-ui. Texto corrido, subtítulos (700) e o texto da proposta (700).
 **Meta Font:** IBM Plex Mono (500). Tema e autoria da carta, contador de propostas, etiquetas, legendas da urna e números das tabelas.
 **LCD Font:** DotGothic16 (400). Tudo o que aparece no visor da urna: rótulos, dígitos, candidato e FIM.
-**Wordmark:** DM Sans, só no nome "voteAI" ao lado do símbolo, para casar com o logo de `brand/logos/`.
+**Wordmark:** DM Sans, só no nome "voteAI" ao lado do símbolo, para casar com o logo de `brand/logo/`.
 
 **Character:** Os títulos são arredondados, cheios e diretos; a ênfase vem da cor (lima no verde, verde no papel), nunca do itálico, porque a Fredoka não tem itálico. Texto de apoio e controles mantêm formas simples e leitura direta. As fontes são arquivos WOFF2 locais em `dist/assets/fonts/`, nos recortes latino e latino estendido, com `font-display: swap`; Rubik é pré-carregada.
 
@@ -259,7 +259,7 @@ A leitura usa contraste tonal, bordas e camadas de papel. A demonstração incli
 
 ## Shapes
 
-As superfícies têm curvas suaves e distintas: carta, palco, botão, resposta, campo e badge seguem os raios normativos do frontmatter. O símbolo da marca, "Urna", é desenhado numa grade de (64px): quadrado verde de raio (15px), a fenda lima de (30×5.5px) no topo e o sinal de confirmação lima com traço de (7px). Ele aparece com (35px) no cabeçalho, (30px) no celular, (27px) no teste e na urna do celular e (26px) no rodapé, sempre ao lado do nome em DM Sans ("vote" em negrito, "AI" regular). O favicon é o mesmo SVG; o ícone de toque (`apple-touch-icon.png`, 180px) usa fundo verde sem cantos. As versões horizontal, vertical, só ícone e monocromáticas, com o guia de uso, estão em `brand/logos/`. Etapas e indicadores usam círculos pequenos.
+As superfícies têm curvas suaves e distintas: carta, palco, botão, resposta, campo e badge seguem os raios normativos do frontmatter. O símbolo da marca, "Urna", é desenhado numa grade de (64px): quadrado verde de raio (15px), a fenda lima de (30×5.5px) no topo e o sinal de confirmação lima com traço de (7px). Ele aparece com (35px) no cabeçalho, (30px) no celular, (27px) no teste e na urna do celular e (26px) no rodapé, sempre ao lado do nome em DM Sans ("vote" em negrito, "AI" regular). O favicon é o mesmo SVG; o ícone de toque (`apple-touch-icon.png`, 180px) usa fundo verde sem cantos. As versões horizontal, vertical, só ícone e monocromáticas, com o guia de uso, estão em `brand/logo/`; os conceitos não escolhidos (Visor e Folha) ficam em `brand/explorations/`. Etapas e indicadores usam círculos pequenos.
 
 A urna tem silhueta própria, com cantos inferiores maiores, visor retangular emoldurado, teclado escuro e teclas curtas. Não normalize o aparelho para o raio dos cartões. As barras de resultado são finas e os divisores têm espessura de (1px).
 
@@ -319,7 +319,7 @@ Ao lado, a demonstração é um bloco de post-its de verdade, com até três not
 
 Seções, na ordem: os candidatos (cartões iguais, retrato em cinza, nome, partido e número, em ordem alfabética, entrando dos dois lados com o "×" no meio); o vídeo; três passos, cada um ilustrado com peças reais da interface em movimento (nota descolando, selo IMPORTANTE ×2 batendo, visor com cursor piscando); uma faixa de propostas reais, sem autoria, passando devagar e parando sob o ponteiro, com os sete temas; por que confiar (fontes abertas, mesmo espaço para os dois, nada sai do aparelho, não substitui o voto), em texto, sem cartões de ícone e sem prova social inventada; perguntas frequentes em itens expansíveis; e a chamada final em lima, com a contagem regressiva. As seções entram por observação de interseção e o conteúdo fica disponível sem movimento. Com movimento reduzido, a faixa vira uma grade parada, a demonstração não se anima sozinha e os dígitos aparecem prontos.
 
-O vídeo da página inicial é a composição `LandingVideo` do projeto Remotion (`media/readme-demo/`): quadro 16:9 de 1280×720, cerca de 20s, textos em português e nenhuma locução. Cinco cenas: a data do 2º turno e os dois candidatos com cartões iguais; três post-its de propostas que os dois apoiam recebendo selos; o mesmo teste no computador e no celular; a urna digitando 22 e 13; o encerramento, que volta ao verde inicial para o loop não ter emenda. A capa (`voteai-explainer-poster.png`) também é a imagem de compartilhamento. Reproduz silenciosamente em loop quando 45% visível, com pausar e repetir. Movimento reduzido mostra a capa e preserva o controle de reproduzir.
+O vídeo da página inicial é a composição `LandingVideo` do projeto Remotion (`video/`): quadro 16:9 de 1280×720, cerca de 20s, textos em português e nenhuma locução. Cinco cenas: a data do 2º turno e os dois candidatos com cartões iguais; três post-its de propostas que os dois apoiam recebendo selos; o mesmo teste no computador e no celular; a urna digitando 22 e 13; o encerramento, que volta ao verde inicial para o loop não ter emenda. A capa (`voteai-explainer-poster.png`) também é a imagem de compartilhamento. Reproduz silenciosamente em loop quando 45% visível, com pausar e repetir. Movimento reduzido mostra a capa e preserva o controle de reproduzir.
 
 ## Do's and Don'ts
 
@@ -329,7 +329,7 @@ O vídeo da página inicial é a composição `LandingVideo` do projeto Remotion
 - **Do** escreva propostas e contextos em português do dia a dia: troque termos técnicos e jurídicos por palavras comuns e explique no contexto o nome que não puder sair.
 - **Do** preserve a altura das cartas e permita rolagem interna do texto longo sem mover os botões.
 - **Do** mantenha a votação e a urna do celular dentro de uma tela; se faltar espaço, retire informação do topo antes de deixar a página rolar.
-- **Do** use o símbolo "Urna" a partir dos arquivos de `brand/logos/`, sem redesenhar.
+- **Do** use o símbolo "Urna" a partir dos arquivos de `brand/logo/`, sem redesenhar.
 - **Do** mantenha o foco visível, controles rotulados e respostas distinguíveis por texto e ícone.
 - **Do** use a mesma estrutura e o mesmo tratamento de retrato para os candidatos.
 - **Do** mantenha estados explícitos para espera, apuração, empate, ausência de dados e busca vazia.

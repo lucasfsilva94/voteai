@@ -2,7 +2,7 @@ import type React from "react";
 import { Easing, interpolate, useCurrentFrame } from "remotion";
 import { color, font } from "../theme";
 
-// The "Urna" brand mark (brand/logos/concept-1-urna).
+// The "Urna" brand mark (brand/logo).
 // `reversed` swaps the fills for use on the green field.
 export const BrandMark: React.FC<{ readonly size: number; readonly reversed?: boolean; readonly style?: React.CSSProperties }> = ({ size, reversed, style }) => (
   <svg width={size} height={size} viewBox="0 0 64 64" style={style}>

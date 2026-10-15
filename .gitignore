@@ -14,10 +14,10 @@ node_modules/
 AGENTS.md
 CLAUDE.md
 
-# Saídas e caches de vídeo
-media/**/out/
-media/**/.thumbnails/
-media/**/renders/
+# Saídas do vídeo e cópias dos assets do site (geradas por video/scripts/sync-assets.mjs)
+video/out/
+video/public/fonts/
+video/public/portraits/
 
 # Resultados de testes e ferramentas de navegador
 test-results/

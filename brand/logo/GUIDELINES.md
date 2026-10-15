@@ -1,23 +1,16 @@
 # voteAI · Guia de uso do logo
 
-Abra [index.html](index.html) para comparar os três conceitos lado a lado.
+O logo do voteAI é o conceito **Urna**: um quadrado verde com a fenda de uma urna e o sinal de confirmação, ao lado do nome em DM Sans ("vote" em negrito, "AI" regular). É o que o site usa no cabeçalho, no rodapé e no favicon.
 
-## Conceitos
-
-| Conceito | Símbolo | Nome |
-| --- | --- | --- |
-| 1. Urna | Quadrado verde com a fenda de uma urna e o sinal de confirmação. É a evolução do símbolo atual. | DM Sans: "vote" em negrito, "AI" regular |
-| 2. Visor | Visor da urna com dois campos de dígito, o primeiro confirmado e o segundo esperando. | DM Sans em negrito, com A e I dentro dos campos |
-| 3. Folha | Folha de proposta com linhas de texto e o canto dobrado, onde o nome aparece. | Fraunces: "vote" reto, "AI" em itálico |
+Os conceitos que não foram escolhidos (Visor e Folha) ficam em [`../explorations/`](../explorations/), com a página de comparação [index.html](../explorations/index.html).
 
 ## Arquivos
 
 ```
-logos/
-  concept-<n>-<nome>/
-    horizontal/  voteai-<nome>-horizontal-{color,mono-dark,mono-light}.svg
-    vertical/    voteai-<nome>-vertical-{color,mono-dark,mono-light}.svg
-    icon/        voteai-<nome>-icon-{color,mono-dark,mono-light}.svg
+brand/logo/
+  horizontal/  voteai-urna-horizontal-{color,mono-dark,mono-light}.svg
+  vertical/    voteai-urna-vertical-{color,mono-dark,mono-light}.svg
+  icon/        voteai-urna-icon-{color,mono-dark,mono-light}.svg
 ```
 
 - **Horizontal:** header do site, assinatura de e-mail, documentos.

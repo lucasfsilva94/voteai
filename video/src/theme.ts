@@ -38,6 +38,6 @@ loadFont({ family: font.brand, url: staticFile("fonts/dm-sans-bold.ttf"), weight
 export const desktopShot = { width: 1280, height: 900 };
 export const mobileShot = { width: 390, height: 844 };
 export const targets = {
-  d: { cta: { x: 193, y: 577 }, agree: { x: 803, y: 790 }, important: { x: 477, y: 860 } },
-  m: { cta: { x: 195, y: 361 }, agree: { x: 285, y: 735 }, important: { x: 106, y: 801 } },
+  d: { agree: { x: 803, y: 790 }, important: { x: 477, y: 860 } },
+  m: { agree: { x: 285, y: 735 }, important: { x: 106, y: 801 } },
 };

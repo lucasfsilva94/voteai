@@ -3,7 +3,7 @@ import { fade } from "@remotion/transitions/fade";
 import { slide } from "@remotion/transitions/slide";
 import type React from "react";
 import { useVideoConfig } from "remotion";
-import { UrnScene } from "../scenes/UrnScene";
+import { UrnScene } from "./UrnScene";
 import { DevicesScene } from "./DevicesScene";
 import { EndScene } from "./EndScene";
 import { NotesScene } from "./NotesScene";

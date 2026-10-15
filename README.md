@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="voteAI" src="brand/logos/concept-1-urna/horizontal/voteai-urna-horizontal-color.svg" width="360"/>
+  <img alt="voteAI" src="brand/logo/horizontal/voteai-urna-horizontal-color.svg" width="360"/>
 </p>
 
 <p align="center"><strong>Primeiro as ideias. Depois os nomes.</strong></p>
@@ -72,26 +72,26 @@ Os testes cobrem o cálculo, a seleção equilibrada, empates, respostas insufic
 
 ## 🎬 Vídeo de demonstração
 
-O vídeo deste README é o mesmo da página inicial: cerca de 20 segundos, sem locução, em loop. Ele mostra a data do 2º turno e os dois candidatos, três propostas às cegas recebendo selos, o teste no computador e no celular e a urna revelando o resultado. É gerado com Remotion em [`media/readme-demo`](media/readme-demo), e os mockups usam capturas reais do site.
+O vídeo deste README é o mesmo da página inicial: cerca de 20 segundos, sem locução, em loop. Ele mostra a data do 2º turno e os dois candidatos, três propostas às cegas recebendo selos, o teste no computador e no celular e a urna revelando o resultado. É gerado com Remotion em [`video`](video), e os mockups usam capturas reais do site.
 
 ```bash
-cd media/readme-demo
+cd video
 npm install
-npx remotion studio                       # prévia interativa
-npx remotion render LandingVideo ../../dist/assets/voteai-explainer.mp4
+npm run dev                               # prévia interativa no Remotion Studio
+npm run render                            # gera dist/assets/voteai-explainer.mp4
 ```
 
-O GIF em loop deste README sai do mesmo vídeo; o comando está no [README do projeto de vídeo](media/readme-demo/README.md).
+O GIF em loop deste README sai do mesmo vídeo; o comando está no [README do projeto de vídeo](video/README.md).
 
 ## 📁 Estrutura
 
 ```
 dist/            site publicado (HTML, CSS, JS, catálogo e assets)
-brand/logos/     logo em SVG: 3 conceitos, guia de uso e comparação
+brand/           logo aprovado (logo/) com guia de uso e conceitos explorados (explorations/)
 docs/            produto, especificação, arquitetura, créditos e mídia do README
-media/           projeto Remotion dos vídeos (página inicial e README)
+video/           projeto Remotion do vídeo da página inicial (também usado neste README)
 scripts/         servidor local e verificação no navegador
-tests/           testes das regras e do layout
+tests/           testes das regras, do layout e do fluxo no navegador
 ```
 
 Fontes dos dados, retratos, tipografia e som estão em [docs/CREDITS.md](docs/CREDITS.md).

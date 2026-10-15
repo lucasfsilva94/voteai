@@ -1,7 +1,7 @@
 {
-  "name": "readme-demo",
+  "name": "voteai-video",
   "version": "1.0.0",
-  "description": "My Remotion video",
+  "description": "Vídeos do voteAI feitos com Remotion",
   "repository": {},
   "license": "UNLICENSED",
   "private": true,
@@ -22,7 +22,10 @@
     "typescript": "5.9.3"
   },
   "scripts": {
-    "dev": "remotion studio",
+    "sync-assets": "node scripts/sync-assets.mjs",
+    "dev": "node scripts/sync-assets.mjs && remotion studio",
+    "render": "node scripts/sync-assets.mjs && remotion render LandingVideo ../dist/assets/voteai-explainer.mp4 --codec=h264 --crf=23",
+    "poster": "node scripts/sync-assets.mjs && remotion still LandingVideo ../dist/assets/voteai-explainer-poster.png --frame=62",
     "build": "remotion bundle",
     "upgrade": "remotion upgrade",
     "lint": "eslint src && tsc"
