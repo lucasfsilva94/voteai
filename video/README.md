@@ -1,6 +1,6 @@
 # voteAI · vídeo
 
-Projeto [Remotion](https://www.remotion.dev/) com o vídeo do voteAI, a composição `LandingVideo`: 1280×720, 30 fps, cerca de 20 s, sem locução e com loop sem emenda (começa e termina no mesmo verde). Ele aparece na página inicial (`dist/assets/voteai-explainer.mp4`, com a capa `voteai-explainer-poster.png`, que também é a imagem de compartilhamento) e, em GIF, no README (`docs/media/voteai-demo.gif`). Os mockups usam capturas reais do site.
+Projeto [Remotion](https://www.remotion.dev/) com o vídeo do voteAI, a composição `LandingVideo`: 1280×720, 30 fps, cerca de 20 s, sem locução e com loop sem emenda (começa e termina no mesmo verde). Ele aparece na página inicial (`src/assets/media/voteai-explainer.mp4`, com a capa `public/assets/voteai-explainer-poster.png`, que também é a imagem de compartilhamento) e, em GIF, no README (`docs/media/voteai-demo.gif`). Os mockups usam capturas reais do site.
 
 ## Cenas (`src/landing/`)
 
@@ -15,15 +15,15 @@ Projeto [Remotion](https://www.remotion.dev/) com o vídeo do voteAI, a composi�
 ## Arquivos
 
 - `public/shots/`: capturas do site (desktop 1280×900 e celular 390×844, com densidade 2x). A posição dos botões usada pelo cursor e pelos toques está em `src/theme.ts`.
-- `public/fonts/` e `public/portraits/`: cópias das fontes e dos retratos de `dist/assets/`, feitas por `scripts/sync-assets.mjs`. Ficam fora do Git, e os comandos abaixo as atualizam antes de abrir ou renderizar.
+- `public/fonts/` e `public/portraits/`: cópias das fontes e dos retratos de `src/assets/`, feitas por `scripts/sync-assets.mjs`. Ficam fora do Git, e os comandos abaixo as atualizam antes de abrir ou renderizar.
 
 ## Comandos
 
 ```bash
 npm install
 npm run dev        # Remotion Studio, para editar com prévia
-npm run render     # gera ../dist/assets/voteai-explainer.mp4
-npm run poster     # gera ../dist/assets/voteai-explainer-poster.png
+npm run render     # gera ../src/assets/media/voteai-explainer.mp4
+npm run poster     # gera ../public/assets/voteai-explainer-poster.png
 ```
 
 O GIF do README sai do mesmo vídeo, com o ffmpeg que vem com o Remotion (que não tem o filtro `fps`, por isso `-r 12`), e fica com cerca de 5 MB:

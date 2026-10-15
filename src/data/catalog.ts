@@ -1,5 +1,7 @@
 // Catálogo de propostas com documento e página. Snapshot 14/10/2026.
-export const PROPOSALS = [
+import type { Proposal } from '../lib/types.ts'
+
+export const PROPOSALS: Proposal[] = [
   {
     "id": "eco-01",
     "area": "economia",

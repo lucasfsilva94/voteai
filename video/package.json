@@ -24,8 +24,8 @@
   "scripts": {
     "sync-assets": "node scripts/sync-assets.mjs",
     "dev": "node scripts/sync-assets.mjs && remotion studio",
-    "render": "node scripts/sync-assets.mjs && remotion render LandingVideo ../dist/assets/voteai-explainer.mp4 --codec=h264 --crf=23",
-    "poster": "node scripts/sync-assets.mjs && remotion still LandingVideo ../dist/assets/voteai-explainer-poster.png --frame=62",
+    "render": "node scripts/sync-assets.mjs && remotion render LandingVideo ../src/assets/media/voteai-explainer.mp4 --codec=h264 --crf=23",
+    "poster": "node scripts/sync-assets.mjs && remotion still LandingVideo ../public/assets/voteai-explainer-poster.png --frame=62",
     "build": "remotion bundle",
     "upgrade": "remotion upgrade",
     "lint": "eslint src && tsc"

@@ -1,7 +1,7 @@
 import { loadFont } from "@remotion/fonts";
 import { staticFile } from "remotion";
 
-// voteAI palette and type, matching dist/styles.css.
+// voteAI palette and type, matching src/styles/tokens.css.
 export const color = {
   paper: "#f6f5ee",
   sage: "#e4e9dd",

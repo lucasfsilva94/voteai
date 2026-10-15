@@ -8,7 +8,7 @@
 
 [![Site](https://img.shields.io/badge/Site-GitHub%20Pages-194b39)](https://lucasfsilva94.github.io/voteai/)
 [![Deploy](https://github.com/lucasfsilva94/voteai/actions/workflows/pages.yml/badge.svg)](https://github.com/lucasfsilva94/voteai/actions/workflows/pages.yml)
-[![Stack](https://img.shields.io/badge/Stack-HTML%20%C2%B7%20CSS%20%C2%B7%20JS-c8ee57)](#-tecnologia)
+[![Stack](https://img.shields.io/badge/Stack-React%20%C2%B7%20Vite%20%C2%B7%20TypeScript-c8ee57)](#-tecnologia)
 [![Backend](https://img.shields.io/badge/Backend-nenhum-173d2f)](#-tecnologia)
 
 </div>
@@ -40,10 +40,12 @@
 
 Este projeto foi desenvolvido com as seguintes tecnologias:
 
-* **Site** (sem framework e sem etapa de build; `dist/` é o site final):
-   * [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
-   * [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
-   * [JavaScript com módulos](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Modules): catálogo em `dist/catalog.js` e cálculo em `dist/engine.js`, rodando no navegador
+* **Site** (o build do Vite gera `dist/`, que é publicado; o cálculo roda no navegador):
+   * [React](https://react.dev/): páginas e componentes
+   * [React Router](https://reactrouter.com/): rotas sem `#` (`/teste`, `/urna`, `/resultado`, `/fontes`)
+   * [TypeScript](https://www.typescriptlang.org/): catálogo, regras e componentes tipados
+   * [Vite](https://vite.dev/): servidor de desenvolvimento e build, com o código dividido por rota
+   * [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS): um arquivo por componente, com os tokens em `src/styles/`
    * [Web Audio API](https://developer.mozilla.org/pt-BR/docs/Web/API/Web_Audio_API): som de confirmação da urna e bipe das teclas
    * [Web Animations API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API): notas descolando e saindo do bloco
    * [Web Storage](https://developer.mozilla.org/pt-BR/docs/Web/API/Web_Storage_API): respostas salvas só no aparelho
@@ -53,9 +55,9 @@ Este projeto foi desenvolvido com as seguintes tecnologias:
    * [IBM Plex Mono](https://fonts.google.com/specimen/IBM+Plex+Mono)
    * [DotGothic16](https://fonts.google.com/specimen/DotGothic16)
    * [DM Sans](https://fonts.google.com/specimen/DM+Sans) (só no desenho do nome, convertido em SVG)
-* **Testes e servidor local:**
-   * [Node.js](https://nodejs.org/) com o [executor de testes nativo](https://nodejs.org/api/test.html)
-   * [Playwright](https://playwright.dev/) com o Google Chrome instalado
+* **Testes:**
+   * [Vitest](https://vitest.dev/): regras do cálculo, da seleção e do som
+   * [Playwright](https://playwright.dev/) com o Google Chrome instalado: fluxo completo, layout, animações e vídeo
 * **Vídeo:**
    * [Remotion](https://www.remotion.dev/)
    * [React](https://react.dev/)
@@ -73,10 +75,11 @@ Este projeto foi desenvolvido com as seguintes tecnologias:
 ```bash
 git clone https://github.com/lucasfsilva94/voteai.git
 cd voteai
+npm install
 npm run dev
 ```
 
-Abra http://127.0.0.1:5173/. Como não há build, qualquer servidor estático que sirva a pasta `dist/` também funciona.
+Abra http://localhost:5173/voteai/. Para gerar e conferir a versão publicada, use `npm run build` e `npm run preview` (http://localhost:4173/voteai/).
 
 ## 🧪 Testes
 
@@ -84,7 +87,7 @@ Abra http://127.0.0.1:5173/. Como não há build, qualquer servidor estático qu
 npm test
 ```
 
-Os testes cobrem o cálculo, a seleção equilibrada, empates, respostas insuficientes e armazenamento bloqueado. Os testes de navegador (`npm run test:browser`, `npm run test:layout`) precisam do Playwright (`npm install`) e do Google Chrome instalado.
+Os testes cobrem o cálculo, a seleção equilibrada, empates, respostas insuficientes, armazenamento bloqueado e o som da urna. Os testes de navegador (`npm run test:browser`, `npm run test:layout`, `npm run test:animation`, `npm run test:video`) usam o Google Chrome instalado e rodam contra o build: deixe `npm run preview` aberto em outro terminal.
 
 ## 🎬 Vídeo de demonstração
 
@@ -94,7 +97,7 @@ O vídeo deste README é o mesmo da página inicial: cerca de 20 segundos, sem l
 cd video
 npm install
 npm run dev                               # prévia interativa no Remotion Studio
-npm run render                            # gera dist/assets/voteai-explainer.mp4
+npm run render                            # gera src/assets/media/voteai-explainer.mp4
 ```
 
 O GIF em loop deste README sai do mesmo vídeo; o comando está no [README do projeto de vídeo](video/README.md).
@@ -102,12 +105,26 @@ O GIF em loop deste README sai do mesmo vídeo; o comando está no [README do pr
 ## 📁 Estrutura
 
 ```
-dist/            site publicado (HTML, CSS, JS, catálogo e assets)
-brand/           logo aprovado (logo/) com guia de uso e conceitos explorados (explorations/)
-docs/            produto, especificação, arquitetura, créditos e mídia do README
-video/           projeto Remotion do vídeo da página inicial (também usado neste README)
-scripts/         servidor local e verificação no navegador
-tests/           testes das regras, do layout e do fluxo no navegador
+index.html         página base do Vite (metadados, ícones e ponto de montagem)
+vite.config.ts     build com base /voteai/, React separado e uma página por rota
+public/            arquivos com endereço fixo: favicon, ícone do iPhone e capa do vídeo
+src/
+  main.tsx         entrada: estilos globais, redirecionamento dos links antigos com # e roteador
+  App.tsx          rotas, provedores, cabeçalho e rodapé
+  pages/           uma pasta por rota: home (/), quiz (/teste), urn (/urna), result (/resultado), sources (/fontes)
+  components/      urna, bloco de notas, botões de resposta, cabeçalho, rodapé, ícones e contagem
+  state/           sessão salva, som e avisos (contexto do React)
+  hooks/           título, foco e rolagem de cada página
+  lib/             regras puras: cálculo, seleção, sessão, som e tipos
+  data/            catálogo de 50 propostas, textos da página inicial e retratos
+  styles/          tokens de cor e tipo e estilos base
+  assets/          fontes, retratos, som da urna e vídeo explicativo
+tests/             regras (Vitest) e navegador (Playwright)
+brand/             logo aprovado (logo/) com guia de uso e conceitos explorados (explorations/)
+docs/              produto, especificação, arquitetura, créditos e mídia do README
+video/             projeto Remotion do vídeo da página inicial (também usado neste README)
 ```
+
+O build (`npm run build`) gera `dist/`, que fica fora do Git e é publicado pelo GitHub Actions. Cada rota ganha uma cópia do `index.html` (e o `404.html`), então endereços como `/voteai/fontes` abrem direto.
 
 Fontes dos dados, retratos, tipografia e som estão em [docs/CREDITS.md](docs/CREDITS.md).

@@ -1,9 +1,11 @@
 # Especificação Técnica: voteAI
 
-**Código:** `dist/`, `scripts/`, `tests/` · **Base:** `/` · **Depende de:** catálogo estático em `dist/catalog.js`
+**Código:** `src/`, `tests/` · **Base:** `/voteai/` · **Depende de:** catálogo estático em `src/data/catalog.ts`
 
 ## 1. Visão Geral
 Site independente que compara respostas a propostas de Lula e Flávio Bolsonaro, com base nos planos de governo publicados. Fluxo: início → 25 propostas ocultas → apuração animada na urna brasileira → resultado → revisão com fontes.
+
+Rotas: `/voteai/` (início), `/voteai/teste`, `/voteai/urna`, `/voteai/resultado` e `/voteai/fontes`, cada uma servida como página própria. Links antigos com `#` (`#teste`, `#fontes`…) redirecionam para o caminho novo; as seções da página inicial continuam como âncoras (`#como-funciona`, `#perguntas`). Urna e resultado sem um teste salvo voltam ao início.
 
 ## 2. Entradas e Saídas (Contratos / APIs)
 Proposta: `{"id":"eco-01","area":"economia","texto":"…","contexto":"…","posicoes":{"A":"sem-posicao","B":"concorda"},"fontes":[{"candidato":"B","url":"https://static.poder360.com.br/uploads/2026/08/Programa-Governo-LULA-2026.pdf","pagina":75,"documento":"…"}]}`.

@@ -1,5 +1,7 @@
-# Dependências
+# Dependências e build (o site publicado é gerado pelo Vite em dist/)
 node_modules/
+dist/
+build-check/
 
 # Materiais de referência e capturas locais
 .reference/
