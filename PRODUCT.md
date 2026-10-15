@@ -8,13 +8,13 @@ web
 Delegada pelo usuário: HTML, CSS e JavaScript modular, sem backend. Node.js para servidor de desenvolvimento e testes.
 
 ## Users
-Pessoas que querem comparar suas opiniões com propostas dos candidatos à Presidência do Brasil em 2026.
+Eleitores de todo o país, com qualquer nível de familiaridade com política, que querem comparar suas opiniões com as propostas dos dois candidatos do 2º turno para presidente em 2026, no celular ou no computador.
 
 ## Product Purpose
 Responder propostas sem conhecer sua autoria e descobrir a maior afinidade ao final, revelada por uma urna brasileira animada.
 
 ## Capabilities and Constraints
-Concordo, Discordo, Importante e Não sei. Comparar Lula e Flávio Bolsonaro com fontes dos planos de governo. Autoria oculta na etapa de respostas; fontes disponíveis depois da revelação e em página própria. Dados pessoais e respostas permanecem no aparelho. Cards com altura constante por viewport; urna acionada automaticamente com som de confirmação ao terminar. Landing com vídeo Hyperframes sem locução e demais elementos animados, com controles de movimento.
+Concordo, Discordo, Importante e Não sei. Comparar Lula e Flávio Bolsonaro com fontes dos planos de governo. Autoria oculta na etapa de respostas; fontes disponíveis depois da revelação e em página própria. Dados pessoais e respostas permanecem no aparelho. Cards com altura constante por viewport; urna acionada automaticamente com som de confirmação ao terminar. Landing focada no 2º turno de 25 de outubro de 2026, com contagem regressiva, candidatos lado a lado com tratamento igual, vídeo em Remotion sem locução, perguntas frequentes e demais elementos animados, com controles de movimento.
 
 ## Brand Commitments
 Nome voteAI. Identidade própria, implementação diretamente no código, conforme confirmado. Interface sem menções a outros sites. Resultados de Lula na paleta vermelha do PT; Flávio na paleta azul, verde e amarela do PL. Novas melhorias visuais solicitadas em 14/10/2026: mais impacto, movimento e vídeo explicativo sem locução.

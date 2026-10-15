@@ -28,10 +28,10 @@ export const Caption: React.FC<{
       <div
         style={{
           fontFamily: font.display,
-          fontWeight: 600,
+          fontWeight: 700,
           fontSize: 44,
           lineHeight: 1.08,
-          letterSpacing: "-0.03em",
+          letterSpacing: "-0.01em",
           marginTop: 22,
           minHeight: 150,
           opacity: interpolate(local, [0, 8], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),

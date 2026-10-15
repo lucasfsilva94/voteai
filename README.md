@@ -45,7 +45,7 @@
 | Som | Web Audio API, com o MP3 da confirmação da urna e o bipe das teclas |
 | Testes | `node:test` para as regras; Playwright com o Chrome instalado para o navegador |
 | Publicação | GitHub Actions publica `dist/` no GitHub Pages a cada push na `main` |
-| Vídeos | [Remotion](https://www.remotion.dev/) (demonstração do README) e Hyperframes (vídeo da página inicial) |
+| Vídeos | [Remotion](https://www.remotion.dev/): vídeo da página inicial e demonstração do README |
 
 ## 🚀 Como usar
 
@@ -86,7 +86,7 @@ npx remotion render VoteAIDemo out/voteai-demo.mp4
 dist/            site publicado (HTML, CSS, JS, catálogo e assets)
 brand/logos/     logo em SVG: 3 conceitos, guia de uso e comparação
 docs/            produto, especificação, arquitetura, créditos e mídia do README
-media/           fontes dos vídeos (Remotion e Hyperframes)
+media/           projeto Remotion dos vídeos (página inicial e README)
 scripts/         servidor local e verificação no navegador
 tests/           testes das regras e do layout
 ```

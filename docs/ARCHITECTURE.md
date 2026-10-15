@@ -2,7 +2,7 @@
 
 Aplicação estática, sem backend, conta ou chave de API. `catalog.js` contém dados e referências; `engine.js` contém seleção, cálculo e validação de sessão; `app.js` contém renderização, eventos e transições; `styles.css` contém o sistema visual e a urna.
 
-`media.js` prepara e reproduz o MP3 real de confirmação: AudioContext desbloqueado no gesto do teste, buffer decodificado em cache e fallback HTMLAudio. A última resposta dispara automaticamente a apuração; falha de autoplay não bloqueia resultado. Vídeo Hyperframes editável em `media/voteai-explainer/`; MP4/poster distribuídos como assets estáticos, com controles e alternativa para movimento reduzido.
+`media.js` prepara e reproduz o MP3 real de confirmação: AudioContext desbloqueado no gesto do teste, buffer decodificado em cache e fallback HTMLAudio. A última resposta dispara automaticamente a apuração; falha de autoplay não bloqueia resultado. Vídeos editáveis no projeto Remotion em `media/readme-demo/` (composições `LandingVideo`, da página inicial, e `VoteAIDemo`, do README); MP4/poster distribuídos como assets estáticos, com controles e alternativa para movimento reduzido.
 
 Sessão versionada sob `voteai:session:1` em localStorage. Sem armazenamento, o estado permanece na memória da aba. Cálculo puro roda no cliente. Compartilhamento envia somente resumo e URL por ação explícita.
 

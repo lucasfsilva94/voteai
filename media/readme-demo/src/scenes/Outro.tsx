@@ -15,13 +15,13 @@ export const Outro: React.FC = () => {
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", opacity: out, scale: interpolate(out, [0, 1], [0.94, 1]) }}>
         <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
           <BrandMark size={84} reversed />
-          <div style={{ fontSize: 72, letterSpacing: "-0.035em", color: color.white, lineHeight: 1 }}>
+          <div style={{ fontFamily: font.brand, fontSize: 72, letterSpacing: "-0.035em", color: color.white, lineHeight: 1 }}>
             <b style={{ fontWeight: 700 }}>vote</b>
             <span style={{ fontWeight: 400 }}>AI</span>
           </div>
         </div>
-        <div style={{ marginTop: 28, fontFamily: font.display, fontWeight: 600, fontSize: 42, letterSpacing: "-0.03em", color: color.white }}>
-          Vote nas ideias. <i style={{ color: color.lime }}>Descubra os nomes.</i>
+        <div style={{ marginTop: 28, fontFamily: font.display, fontWeight: 700, fontSize: 42, letterSpacing: "-0.01em", color: color.white }}>
+          Vote nas ideias. <span style={{ color: color.lime }}>Descubra os nomes.</span>
         </div>
         <div
           style={{

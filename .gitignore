@@ -14,8 +14,8 @@ node_modules/
 AGENTS.md
 CLAUDE.md
 
-# Saídas e caches do Hyperframes
-media/**/.hyperframes/
+# Saídas e caches de vídeo
+media/**/out/
 media/**/.thumbnails/
 media/**/renders/
 

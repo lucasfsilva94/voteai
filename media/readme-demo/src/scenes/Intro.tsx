@@ -22,6 +22,7 @@ export const Intro: React.FC = () => {
         />
         <div
           style={{
+            fontFamily: font.brand,
             fontSize: 96,
             letterSpacing: "-0.035em",
             color: color.white,
@@ -38,15 +39,15 @@ export const Intro: React.FC = () => {
         style={{
           marginTop: 34,
           fontFamily: font.display,
-          fontWeight: 600,
+          fontWeight: 700,
           fontSize: 46,
-          letterSpacing: "-0.03em",
+          letterSpacing: "-0.01em",
           color: color.white,
           opacity: interpolate(frame, [0.65 * fps, 1 * fps], [0, 1], clamp),
           translate: interpolate(frame, [0.65 * fps, 1.1 * fps], ["0px 18px", "0px 0px"], { ...clamp, easing: Easing.bezier(0.16, 1, 0.3, 1) }),
         }}
       >
-        Primeiro as ideias. <i style={{ color: color.lime }}>Depois os nomes.</i>
+        Primeiro as ideias. <span style={{ color: color.lime }}>Depois os nomes.</span>
       </div>
     </AbsoluteFill>
   );

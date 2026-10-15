@@ -8,4 +8,4 @@
 Arquivo solicitado pelo usuário: https://www.myinstants.com/media/sounds/confirma-urna.mp3. Página de origem: https://www.myinstants.com/pt/instant/urna-eletronica-confirma/. Recurso local: dist/assets/urna-confirma.mp3. Substitui o áudio sintetizado anterior. Carregamento e desbloqueio no gesto do teste; fallback para repetição manual se a política do navegador impedir reprodução.
 
 ## Vídeo
-Skill oficial Hyperframes, HeyGen: https://github.com/heygen-com/hyperframes/tree/main/skills/hyperframes. Fonte editável em media/voteai-explainer. Vídeo curto sem locução, conforme confirmado pelo usuário. Conteúdo demonstra mecanismo do teste, sem atribuir percentuais fictícios a resultados reais.
+Vídeo da página inicial: composição `LandingVideo` do projeto Remotion em `media/readme-demo/`, sem locução, com legendas na tela.

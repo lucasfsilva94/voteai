@@ -6,7 +6,7 @@ CA-01: Dado um teste completo, quando a urna confirma a apuração, então mostr
 CA-02: Dadas somente respostas Não sei, quando concluir, então informa ausência de evidência em vez de escolher candidato.
 CA-03: Dada uma sessão parcialmente respondida, quando recarregar, então oferece retomada no mesmo ponto.
 
-RF-06: após a última resposta, a urna apura automaticamente com o áudio real de confirmação. RF-07: cores partidárias nos resultados. RF-08: cartas estáveis e vídeo explicativo Hyperframes na landing. RF-09: interface exclusivamente com a marca voteAI.
+RF-06: após a última resposta, a urna apura automaticamente com o áudio real de confirmação. RF-07: cores partidárias nos resultados. RF-08: cartas estáveis e vídeo explicativo em Remotion na landing. RF-09: interface exclusivamente com a marca voteAI.
 
 CA-04: Dadas perguntas curtas e longas, quando alternar entre elas no mesmo viewport, então os botões mantêm posição e o conteúdo permanece legível.
 CA-05: Dada a 25ª resposta, quando registrar, então a urna apura e revela sem clique adicional, com som habilitado salvo preferência de silêncio.
