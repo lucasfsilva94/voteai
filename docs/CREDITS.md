@@ -17,7 +17,7 @@ O texto das propostas é reescrito para o voteAI; os contextos são notas factua
 As cores só aparecem depois da etapa às cegas, sempre junto dos nomes.
 
 ## Fontes tipográficas e som
-- Rubik, Fredoka, IBM Plex Mono e DotGothic16 (site) e DM Sans (nome no logo): Google Fonts, SIL Open Font License, auto-hospedadas em `dist/assets/fonts/`, com as licenças ao lado dos arquivos.
+- Rubik, Fredoka, IBM Plex Mono e DotGothic16 (site) : Google Fonts, SIL Open Font License, auto-hospedadas em `dist/assets/fonts/`; DM Sans, também OFL, só no traçado do nome "voteAI" (SVG), com as licenças ao lado dos arquivos.
 - Fraunces: usada só no traçado do conceito de logo "Folha", em `brand/explorations/`; SIL Open Font License.
 - Som de confirmação: gravação da urna eletrônica, https://www.myinstants.com/pt/instant/urna-eletronica-confirma/
 - Bipe das teclas na simulação: sintetizado no navegador.

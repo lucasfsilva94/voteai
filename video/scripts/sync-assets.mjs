@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const assets = path.resolve(root, '../dist/assets');
 const copies = {
-  fonts: ['fonts/rubik-latin.woff2', 'fonts/rubik-latin-ext.woff2', 'fonts/fredoka-latin.woff2', 'fonts/fredoka-latin-ext.woff2', 'fonts/dotgothic16-latin.woff2', 'fonts/ibmplexmono-500-latin.woff2', 'fonts/dm-sans.ttf', 'fonts/dm-sans-bold.ttf'],
+  fonts: ['fonts/rubik-latin.woff2', 'fonts/fredoka-latin.woff2', 'fonts/dotgothic16-latin.woff2', 'fonts/ibmplexmono-500-latin.woff2'],
   portraits: ['flavio.jpg', 'lula.jpg'],
 };
 

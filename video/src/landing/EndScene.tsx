@@ -1,6 +1,6 @@
 import type React from "react";
 import { AbsoluteFill, Easing, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
-import { BrandMark } from "../components/Brand";
+import { BrandMark, Wordmark } from "../components/Brand";
 import { color, font } from "../theme";
 
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
@@ -36,10 +36,7 @@ export const EndScene: React.FC = () => {
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", opacity: out, scale: interpolate(out, [0, 1], [0.95, 1]) }}>
         <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
           <BrandMark size={84} reversed style={{ scale: interpolate(frame, [0, 12], [0.4, 1], { ...clamp, easing: Easing.spring({ damping: 12 }), output: "perceptual-scale" }) }} />
-          <div style={{ fontFamily: font.brand, fontSize: 72, letterSpacing: "-0.035em", color: color.white, lineHeight: 1 }}>
-            <b style={{ fontWeight: 700 }}>vote</b>
-            <span style={{ fontWeight: 400 }}>AI</span>
-          </div>
+          <Wordmark size={72} color={color.white} />
         </div>
         <div
           style={{

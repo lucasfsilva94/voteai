@@ -18,21 +18,18 @@ export const color = {
 };
 
 // Same roles as the site: Fredoka for titles and buttons, Rubik for text, DotGothic16 on the urn display,
-// IBM Plex Mono for small labels, DM Sans only for the wordmark.
+// IBM Plex Mono for small labels. The wordmark is an outlined SVG (Wordmark in components/Brand.tsx).
 export const font = {
   display: "Fredoka",
   body: "Rubik",
   pixel: "DotGothic16",
   mono: "IBM Plex Mono",
-  brand: "DM Sans",
 };
 
 loadFont({ family: font.display, url: staticFile("fonts/fredoka-latin.woff2"), weight: "300 700" });
 loadFont({ family: font.body, url: staticFile("fonts/rubik-latin.woff2"), weight: "300 900" });
 loadFont({ family: font.pixel, url: staticFile("fonts/dotgothic16-latin.woff2"), weight: "400" });
 loadFont({ family: font.mono, url: staticFile("fonts/ibmplexmono-500-latin.woff2"), weight: "500" });
-loadFont({ family: font.brand, url: staticFile("fonts/dm-sans.ttf"), weight: "400" });
-loadFont({ family: font.brand, url: staticFile("fonts/dm-sans-bold.ttf"), weight: "700" });
 
 // Screenshot sizes (CSS pixels) and the button centres measured while capturing them (public/shots/rects.json).
 export const desktopShot = { width: 1280, height: 900 };

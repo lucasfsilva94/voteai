@@ -12,6 +12,7 @@ colors:
   line: "#d5dacf"
   orange: "#995c34"
   pt-red: "#e4142c"
+  pt-red-text: "#c41026"
   pt-paper: "#ffedef"
   pl-blue: "#004f9f"
   pl-green: "#009640"
@@ -214,7 +215,7 @@ A paleta usa verdes naturais sobre papel morno, com contraste firme e um acento 
 **Body Font:** Rubik (300 a 900), com fallback system-ui. Texto corrido, subtítulos (700) e o texto da proposta (700).
 **Meta Font:** IBM Plex Mono (500). Tema e autoria da carta, contador de propostas, etiquetas, legendas da urna e números das tabelas.
 **LCD Font:** DotGothic16 (400). Tudo o que aparece no visor da urna: rótulos, dígitos, candidato e FIM.
-**Wordmark:** DM Sans, só no nome "voteAI" ao lado do símbolo, para casar com o logo de `brand/logo/`.
+**Wordmark:** o nome "voteAI" é um SVG com o traçado da DM Sans ("vote" 700, "AI" 400, espaçamento -0.035em), em `currentColor` e com tamanho em em; nenhuma fonte é baixada para ele. É logotipo (exceção da WCAG 1.4.5), e o link que o contém tem `aria-label`. Texto pequeno no vermelho do PT usa `#c41026` (5,4:1); `#e4142c` fica para barras, pontos e o título grande.
 
 **Character:** Os títulos são arredondados, cheios e diretos; a ênfase vem da cor (lima no verde, verde no papel), nunca do itálico, porque a Fredoka não tem itálico. Texto de apoio e controles mantêm formas simples e leitura direta. As fontes são arquivos WOFF2 locais em `dist/assets/fonts/`, nos recortes latino e latino estendido, com `font-display: swap`; Rubik é pré-carregada.
 

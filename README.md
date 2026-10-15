@@ -52,7 +52,7 @@ Este projeto foi desenvolvido com as seguintes tecnologias:
    * [Fredoka](https://fonts.google.com/specimen/Fredoka)
    * [IBM Plex Mono](https://fonts.google.com/specimen/IBM+Plex+Mono)
    * [DotGothic16](https://fonts.google.com/specimen/DotGothic16)
-   * [DM Sans](https://fonts.google.com/specimen/DM+Sans)
+   * [DM Sans](https://fonts.google.com/specimen/DM+Sans) (só no desenho do nome, convertido em SVG)
 * **Testes e servidor local:**
    * [Node.js](https://nodejs.org/) com o [executor de testes nativo](https://nodejs.org/api/test.html)
    * [Playwright](https://playwright.dev/) com o Google Chrome instalado
