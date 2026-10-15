@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="voteai-c1-icon-color-t voteai-c1-icon-color-d">
+<title id="voteai-c1-icon-color-t">voteAI, conceito Urna</title>
+<desc id="voteai-c1-icon-color-d">Quadrado verde com a fenda de uma urna e um sinal de confirmação</desc>
+<g id="icon">
+<path d="M15 0H49A15 15 0 0 1 64 15V49A15 15 0 0 1 49 64H15A15 15 0 0 1 0 49V15A15 15 0 0 1 15 0Z" fill="#194b39"/>
+<path d="M19.75 11H44.25A2.75 2.75 0 0 1 47 13.75V13.75A2.75 2.75 0 0 1 44.25 16.5H19.75A2.75 2.75 0 0 1 17 13.75V13.75A2.75 2.75 0 0 1 19.75 11Z" fill="#c8ee57"/>
+<path d="M18.5 36L28.5 46L46.5 26.5" fill="none" stroke="#c8ee57" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="voteai-c3-icon-mono-light-t voteai-c3-icon-mono-light-d">
+<title id="voteai-c3-icon-mono-light-t">voteAI, conceito Folha</title>
+<desc id="voteai-c3-icon-mono-light-d">Folha de proposta com linhas de texto e o canto dobrado</desc>
+<defs>
+<mask id="voteai-c3-icon-mono-light-icon-m" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+<path d="M14 2H39L56 19V58A4 4 0 0 1 52 62H14A4 4 0 0 1 10 58V6A4 4 0 0 1 14 2Z" fill="#fff"/>
+<path d="M39 2V15A4 4 0 0 0 43 19H56Z" fill="#000"/>
+<path d="M20.5 29H39.5A2.5 2.5 0 0 1 42 31.5V31.5A2.5 2.5 0 0 1 39.5 34H20.5A2.5 2.5 0 0 1 18 31.5V31.5A2.5 2.5 0 0 1 20.5 29Z" fill="#000"/>
+<path d="M20.5 39H45.5A2.5 2.5 0 0 1 48 41.5V41.5A2.5 2.5 0 0 1 45.5 44H20.5A2.5 2.5 0 0 1 18 41.5V41.5A2.5 2.5 0 0 1 20.5 39Z" fill="#000"/>
+<path d="M20.5 49H32.5A2.5 2.5 0 0 1 35 51.5V51.5A2.5 2.5 0 0 1 32.5 54H20.5A2.5 2.5 0 0 1 18 51.5V51.5A2.5 2.5 0 0 1 20.5 49Z" fill="#000"/>
+</mask>
+</defs>
+<g id="icon"><rect width="64" height="64" fill="#ffffff" mask="url(#voteai-c3-icon-mono-light-icon-m)"/></g>
+</svg>
