@@ -358,3 +358,41 @@ h1 em,h2 em{font-style:normal}
 .lcd-label{font-size:9px}
 .sim-fim strong{letter-spacing:.18em}
 @media(max-width:650px){body[data-view=urn] .lcd-label{font-size:10px}.result-device .lcd-label{font-size:7px}}
+
+/* Sticky-note pad: the proposal is the top note, glued at its top edge. Notes behind it and the pad edge
+   below show how many proposals are left; the pad thins as the answers go in. One note colour for all,
+   so no colour hints at a party. */
+:root{--note:#f4f7c8;--note-2:#ebf0b6;--note-3:#e2e9a6;--note-4:#d9e197;--note-edge:#cfd88a}
+.note-stack{position:relative;isolation:isolate;padding-bottom:18px}
+.note-back{position:absolute;inset:0 0 18px;z-index:-1;border-radius:3px 3px 8px 8px;box-shadow:0 1px 2px rgba(23,61,47,.1),0 8px 14px -10px rgba(23,61,47,.35);transform-origin:50% 0}
+.note-back-1{background:var(--note-2);transform:translate(9px,7px) rotate(1.8deg)}
+.note-back-2{background:var(--note-3);transform:translate(-10px,11px) rotate(-2.2deg)}
+.note-back-3{background:var(--note-4);transform:translate(14px,15px) rotate(3deg)}
+/* Pad thickness: one hairline per remaining note, at most 24 lines. */
+.note-stack::after{content:'';position:absolute;z-index:-2;left:10px;right:10px;top:calc(100% - 19px);height:calc(var(--pad) * .75px + 2px);border-radius:0 0 6px 6px;background:repeating-linear-gradient(to bottom,var(--note-3) 0 1px,var(--note-edge) 1px 2px);box-shadow:0 7px 10px -6px rgba(23,61,47,.4)}
+.quiz-paper.note{background:var(--note);border:0;border-radius:3px 3px 8px 8px;transform:rotate(var(--tilt));transform-origin:50% 0;animation:none;transition:none;box-shadow:0 1px 1px rgba(23,61,47,.07),0 3px 6px rgba(23,61,47,.06),0 24px 22px -20px rgba(23,61,47,.5)}
+.quiz-paper.note .paper-bottom{border-top:0}
+.quiz-paper.note .proposal-copy{scrollbar-color:#b6c47e transparent;touch-action:pan-y}
+.quiz-paper.note-rise{animation:note-rise .34s cubic-bezier(.16,1,.3,1)}
+.quiz-paper.note-return{animation:note-return .42s cubic-bezier(.16,1,.3,1)}
+.quiz-paper.note.is-dragging{cursor:grabbing;box-shadow:0 2px 3px rgba(23,61,47,.08),0 30px 30px -18px rgba(23,61,47,.5)}
+.quiz-paper.note.is-leaving{pointer-events:none}
+.choice.is-leaning{translate:0 -3px;outline:3px solid var(--focus);outline-offset:3px}
+@keyframes note-rise{from{transform:translate(9px,7px) rotate(1.8deg);background:var(--note-2)}to{transform:rotate(var(--tilt));background:var(--note)}}
+@keyframes note-return{from{transform:translate(-45%,-6%) rotate(-14deg);opacity:0}to{transform:rotate(var(--tilt));opacity:1}}
+/* Landing demo uses the same note. */
+.hero-shell .preview-paper{background:var(--note);border-radius:3px 3px 8px 8px}
+.hero-shell .paper-behind{background:var(--note-3);border-radius:3px 3px 8px 8px}
+@media(max-width:650px){
+  body[data-view=quiz] .note-stack{flex:1;min-height:0;display:flex;flex-direction:column;padding-bottom:16px}
+  body[data-view=quiz] .note-back{inset:0 0 16px}
+  body[data-view=quiz] .note-stack::after{top:calc(100% - 17px)}
+  body[data-view=quiz] .note-back-1{transform:translate(6px,6px) rotate(1.6deg)}
+  body[data-view=quiz] .note-back-2{transform:translate(-6px,9px) rotate(-1.8deg)}
+  body[data-view=quiz] .note-back-3{transform:translate(9px,12px) rotate(2.4deg)}
+  body[data-view=quiz] .quiz-paper.note{flex:1}
+  body[data-view=quiz] .choices{margin-top:8px}
+}
+@media(prefers-reduced-motion:reduce){.quiz-paper.note-rise,.quiz-paper.note-return{animation:none}}
+/* A note flying off the pad must not widen the page. */
+body[data-view=quiz]{overflow-x:clip}

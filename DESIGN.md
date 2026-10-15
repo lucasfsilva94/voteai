@@ -22,6 +22,11 @@ colors:
   choice-hover: "#edf1e5"
   lime-hover: "#d5e7a9"
   focus: "#63872d"
+  note: "#f4f7c8"
+  note-2: "#ebf0b6"
+  note-3: "#e2e9a6"
+  note-4: "#d9e197"
+  note-edge: "#cfd88a"
 typography:
   display:
     fontFamily: "'Fredoka', 'Rubik', sans-serif"
@@ -78,6 +83,8 @@ rounded:
   choice: "9px"
   field: "7px"
   badge: "4px"
+  note: "3px 3px 8px 8px"
+  note-edge: "0 0 6px 6px"
 spacing:
   compact: "8px"
   inline: "12px"
@@ -238,7 +245,7 @@ Os intervalos recorrentes no frontmatter registram medidas usadas, sem presumir 
 
 ## Elevation & Depth
 
-A leitura usa contraste tonal, bordas e camadas de papel. A demonstração inclina a folha frontal (-2.5deg) e a folha traseira (3deg); o teste apresenta a carta reta e delimitada. A urna é a exceção material: sombras externas e internas dão corpo à carcaça, reentrância ao LCD e pressão às teclas. Os valores completos de sombra estão em `dist/styles.css`.
+A leitura usa contraste tonal, bordas e camadas de papel. A demonstração inclina a folha frontal (-2.5deg) e a folha traseira (3deg); o teste apresenta a proposta como a nota de cima de um bloco de post-its, quase reta, com as notas restantes por trás. A urna é a exceção material: sombras externas e internas dão corpo à carcaça, reentrância ao LCD e pressão às teclas. Os valores completos de sombra estão em `dist/styles.css`.
 
 ### Shadow Vocabulary
 
@@ -248,7 +255,7 @@ A leitura usa contraste tonal, bordas e camadas de papel. A demonstração incli
 - **Reentrâncias e teclas:** sombras internas do bezel e teclado; sombras curtas sob botões físicos.
 - **Mensagem transitória:** sombra maior para destacar feedback fixo acima da página.
 
-**The Profundidade de Papel Rule.** Mantenha a leitura apoiada em tons e linhas; reserve a profundidade física mais forte para o aparelho e feedback transitório.
+**The Profundidade de Papel Rule.** O bloco de post-its é a única pilha física da etapa de respostas: sombra longa e suave sob a nota de cima e notas de trás em tons mais escuros de `note`. Fora dele, mantenha a leitura apoiada em tons e linhas; reserve a profundidade física mais forte para o aparelho e feedback transitório.
 
 ## Shapes
 
@@ -270,7 +277,11 @@ Badges são informativos. A resposta registrada tem borda suave, raio de badge e
 
 ### Cards / Containers
 
-A carta de proposta usa folha marfim, borda de linha e o padding normativo. Seu cabeçalho reúne tema e autoria oculta; a proposta ocupa o centro; o contexto usa tinta suave; um divisor organiza o rodapé. No celular, o padding do teste passa a (24px 24px 20px). A entrada sobe (12px) em (.35s); cada resposta sai numa direção: concordância à direita, discordância à esquerda, importância para cima, dúvida para baixo.
+**Bloco de post-its.** A proposta é a nota de cima de um bloco adesivo. A nota usa `note`, sem borda, cantos `rounded.note` e uma inclinação leve que varia entre (-0.7deg) e (0.8deg) de uma nota para outra; fica colada no topo (`transform-origin` no alto) e a sombra mais longa embaixo dá a impressão da base solta. Uma só cor para todas as notas, para que nenhuma lembre um partido. Seu cabeçalho reúne tema e autoria oculta; a proposta ocupa o centro; o contexto usa tinta suave; o rodapé não tem divisor.
+
+Atrás dela aparecem até três notas (`note-2`, `note-3`, `note-4`), deslocadas e giradas para os lados, e, sob o bloco, a espessura do bloco: uma linha fina por nota restante (0.75px cada, em `note-edge`). As notas de trás somem quando faltam três, duas e uma proposta, e a espessura afina a cada resposta. O bloco reserva (18px) abaixo da nota, ou (16px) no celular, para que os botões não mudem de lugar.
+
+Ao responder, a nota descola: a base se levanta (`rotateX` de 24deg em perspectiva) no primeiro terço e a nota sai na direção da resposta (concordância à direita, discordância à esquerda, importância para cima, dúvida para baixo) em (340ms), via Web Animations. A nota seguinte sobe da posição da primeira nota de trás para o topo em (.34s). Voltar traz a nota anterior de volta ao bloco, entrando pela esquerda em (.42s). No toque, a nota segue o dedo na horizontal, inclinando conforme o arraste; passado (40px), o botão correspondente se destaca; passado (80px), a resposta é registrada; antes disso, a nota volta ao lugar. O texto da proposta rola só na vertical (`touch-action: pan-y`) para não roubar o gesto. Com movimento reduzido, a nota troca sem deslocamento. A carta de demonstração da landing usa a mesma cor e os mesmos cantos.
 
 ### Inputs / Fields
 
