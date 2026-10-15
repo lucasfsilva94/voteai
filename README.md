@@ -38,15 +38,31 @@
 
 ## 🧰 Tecnologia
 
-| Parte | Como é feita |
-| --- | --- |
-| Site | HTML, CSS e JavaScript em módulos, sem framework e sem etapa de build (`dist/` é o site final); fontes Rubik, Fredoka, IBM Plex Mono e DotGothic16 auto-hospedadas |
-| Dados | Catálogo estático em `dist/catalog.js`, com documento e página de cada proposta |
-| Cálculo | `dist/engine.js`: sorteio equilibrado e pontuação, roda no navegador |
-| Som | Web Audio API, com o MP3 da confirmação da urna e o bipe das teclas |
-| Testes | `node:test` para as regras; Playwright com o Chrome instalado para o navegador |
-| Publicação | GitHub Actions publica `dist/` no GitHub Pages a cada push na `main` |
-| Vídeos | [Remotion](https://www.remotion.dev/): o vídeo da página inicial (`LandingVideo`), também mostrado neste README |
+Este projeto foi desenvolvido com as seguintes tecnologias:
+
+* **Site** (sem framework e sem etapa de build; `dist/` é o site final):
+   * [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
+   * [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
+   * [JavaScript com módulos](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Modules): catálogo em `dist/catalog.js` e cálculo em `dist/engine.js`, rodando no navegador
+   * [Web Audio API](https://developer.mozilla.org/pt-BR/docs/Web/API/Web_Audio_API): som de confirmação da urna e bipe das teclas
+   * [Web Animations API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API): notas descolando e saindo do bloco
+   * [Web Storage](https://developer.mozilla.org/pt-BR/docs/Web/API/Web_Storage_API): respostas salvas só no aparelho
+* **Tipografia** (auto-hospedada):
+   * [Rubik](https://fonts.google.com/specimen/Rubik)
+   * [Fredoka](https://fonts.google.com/specimen/Fredoka)
+   * [IBM Plex Mono](https://fonts.google.com/specimen/IBM+Plex+Mono)
+   * [DotGothic16](https://fonts.google.com/specimen/DotGothic16)
+   * [DM Sans](https://fonts.google.com/specimen/DM+Sans)
+* **Testes e servidor local:**
+   * [Node.js](https://nodejs.org/) com o [executor de testes nativo](https://nodejs.org/api/test.html)
+   * [Playwright](https://playwright.dev/) com o Google Chrome instalado
+* **Vídeo:**
+   * [Remotion](https://www.remotion.dev/)
+   * [React](https://react.dev/)
+   * [TypeScript](https://www.typescriptlang.org/)
+* **Publicação:**
+   * [GitHub Actions](https://github.com/features/actions)
+   * [GitHub Pages](https://pages.github.com/)
 
 ## 🚀 Como usar
 
