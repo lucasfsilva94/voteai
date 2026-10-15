@@ -28,4 +28,4 @@ O GIF do README é gerado a partir do MP4 com o ffmpeg que vem com o Remotion:
 npx remotion ffmpeg -i out/voteai-demo.mp4 -r 15 -vf "scale=896:504:flags=lanczos,split[a][b];[a]palettegen=max_colors=160:stats_mode=diff[p];[b][p]paletteuse=dither=bayer:bayer_scale=4:diff_mode=rectangle" -loop 0 out/voteai-demo.gif
 ```
 
-Copie os dois arquivos para `docs/media/`.
+Copie o GIF para `docs/media/`; o MP4 fica só em `out/`, como etapa intermediária.
