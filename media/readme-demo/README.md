@@ -4,8 +4,8 @@ Projeto [Remotion](https://www.remotion.dev/) com os dois vídeos do voteAI. Os 
 
 | Composição | Onde aparece | Duração |
 | --- | --- | --- |
-| `LandingVideo` | Página inicial (`dist/assets/voteai-explainer.mp4` e a capa `voteai-explainer-poster.png`) | cerca de 20 s |
-| `VoteAIDemo` | GIF do README (`docs/media/voteai-demo.gif`) | cerca de 18 s |
+| `LandingVideo` | Página inicial (`dist/assets/voteai-explainer.mp4` e a capa `voteai-explainer-poster.png`) e GIF do README (`docs/media/voteai-demo.gif`) | cerca de 20 s |
+| `VoteAIDemo` | Demonstração alternativa, só com as telas do site (não publicada) | cerca de 18 s |
 
 ## Cenas da página inicial (`src/landing/`)
 
@@ -30,13 +30,13 @@ npm install
 npx remotion studio
 npx remotion render LandingVideo ../../dist/assets/voteai-explainer.mp4 --codec=h264 --crf=23
 npx remotion still LandingVideo ../../dist/assets/voteai-explainer-poster.png --frame=62
-npx remotion render VoteAIDemo out/voteai-demo.mp4
+npx remotion render LandingVideo out/landing.mp4
 ```
 
-O GIF do README é gerado a partir do MP4 com o ffmpeg que vem com o Remotion (que não tem o filtro `fps`, por isso `-r 15`):
+O GIF do README é gerado a partir do MP4 com o ffmpeg que vem com o Remotion (que não tem o filtro `fps`, por isso `-r 12`), ficando com cerca de 5 MB:
 
 ```bash
-npx remotion ffmpeg -i out/voteai-demo.mp4 -r 15 -vf "scale=896:504:flags=lanczos,split[a][b];[a]palettegen=max_colors=160:stats_mode=diff[p];[b][p]paletteuse=dither=bayer:bayer_scale=4:diff_mode=rectangle" -loop 0 out/voteai-demo.gif
+npx remotion ffmpeg -i out/landing.mp4 -r 12 -vf "scale=896:504:flags=lanczos,split[a][b];[a]palettegen=max_colors=144:stats_mode=diff[p];[b][p]paletteuse=dither=bayer:bayer_scale=4:diff_mode=rectangle" -loop 0 out/voteai-demo.gif
 ```
 
-Copie o GIF para `docs/media/`; o MP4 do README fica só em `out/`.
+Copie o GIF para `docs/media/`; os MP4 intermediários ficam só em `out/`.
