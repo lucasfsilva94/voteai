@@ -225,5 +225,13 @@ app.addEventListener('click',e=>{
 app.addEventListener('input',e=>{if(e.target.id==='source-search'){search=e.target.value;filterSources();}});
 app.addEventListener('change',e=>{if(e.target.id==='source-filter'){filter=e.target.value;filterSources();}});
 document.addEventListener('keydown',e=>{if(view!=='quiz'||e.altKey||e.metaKey||e.ctrlKey||e.target.matches('input,select,textarea')||e.target.closest('.proposal-copy'))return;const value={ArrowLeft:'disagree',ArrowRight:'agree',ArrowUp:'important',ArrowDown:'skip'}[e.key];if(value){e.preventDefault();answer(value);}});
-function route(){const hash=location.hash;clearSim();busy=false;if(hash==='#fontes')view='sources';else if(hash==='#teste'&&session&&session.index<25)view='quiz';else if(['#urna','#resultado'].includes(hash)&&session?.index===25)view=session.revealed?'result':'urn';else view='home';render({focus:false});if(view==='home'&&hash.length>1&&hash!=='#inicio')document.getElementById(hash.slice(1))?.scrollIntoView({behavior:'smooth'});}
+// Landing sections (#como-funciona, #perguntas, ...) are anchors, not views: scroll to them without re-rendering,
+// and move focus there so keyboard and screen-reader users land on the section too.
+const VIEW_HASHES=['#inicio','#fontes','#teste','#urna','#resultado'];
+function scrollToSection(id){const el=document.getElementById(id);if(!el)return;el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});if(!el.hasAttribute('tabindex'))el.setAttribute('tabindex','-1');el.focus({preventScroll:true});}
+function route(){const hash=location.hash;const section=hash.length>1&&!VIEW_HASHES.includes(hash)?hash.slice(1):null;
+  if(section&&view==='home'&&document.getElementById(section)){scrollToSection(section);return;}
+  clearSim();busy=false;if(hash==='#fontes')view='sources';else if(hash==='#teste'&&session&&session.index<25)view='quiz';else if(['#urna','#resultado'].includes(hash)&&session?.index===25)view=session.revealed?'result':'urn';else view='home';render({focus:false});
+  // Coming from another view: wait for the new page to lay out before scrolling to the section.
+  if(view==='home'&&section)requestAnimationFrame(()=>requestAnimationFrame(()=>scrollToSection(section)));}
 window.addEventListener('hashchange',route);route();

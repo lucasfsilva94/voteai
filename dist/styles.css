@@ -619,3 +619,5 @@ body[data-view=quiz]{overflow-x:clip}
 :root{--pt-red-text:#c41026}
 .score-info>div>span>small{font-size:11px}
 .score-candidate-B .score-info>div>span>small,.lcd-candidate-B strong,.position-B strong{color:var(--pt-red-text)}
+/* Sections receive focus when reached from the menu; the move is announced, the outline is not needed. */
+section[tabindex="-1"]:focus{outline:none}
