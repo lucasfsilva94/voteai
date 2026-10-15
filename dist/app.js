@@ -44,7 +44,8 @@ function render({focus=false,scroll=true}={}){
   noteEntry='rise';
   document.title='voteAI — '+({home:'Primeiro as ideias. Depois os nomes.',quiz:'Sua opinião conta',urn:'Revele sua afinidade',result:'Seu resultado',sources:'Fontes e critérios'}[view]);
   if(view==='sources')filterSources();
-  if(view==='quiz')bindSwipe();
+  fitObserver?.disconnect();
+  if(view==='quiz'){bindSwipe();bindFit();}
   if(view==='home')bindLandingMotion();
   if(view==='urn')queueMicrotask(reveal);
   if(scroll)window.scrollTo({top:0,behavior:'instant'});
@@ -58,16 +59,20 @@ function answer(value){if(view!=='quiz'||busy)return;confirmationSound.unlock();
   const card=document.querySelector('#proposal-card');
   document.querySelectorAll('[data-answer]').forEach(b=>{b.disabled=true;b.classList.remove('is-leaning');});
   const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  // Peel the note from its free bottom edge (it is glued at the top), then send it the way of the answer.
+  // Stamp the answer on the note, peel it from its free bottom edge (it is glued at the top), then send it the way of the answer.
+  if(card){const s=noteStamp(card,value);s.classList.remove('is-preview');s.style.opacity='';}
   if(!reduced&&card?.animate){
     const [x,y]={agree:[1,0],disagree:[-1,0],important:[0,-1],skip:[0,1]}[value];
     const from=getComputedStyle(card).transform;
-    const lift=`perspective(800px) translateY(-8px) rotateX(24deg) rotate(${(x||-y)*3}deg)`;
+    // Taller notes peel at a smaller angle so the lifted edge never sweeps over the answer buttons.
+    const peel=Math.max(6,Math.min(16,4400/card.offsetHeight));
+    const lift=`perspective(900px) translateY(-8px) rotateX(${peel.toFixed(1)}deg) rotate(${(x||-y)*3}deg)`;
     const to=x?`translate(${x*125}%,-8%) rotate(${x*18}deg)`:y<0?'translate(0,-60%) rotate(-5deg) scale(1.03)':'translate(0,26%) rotate(4deg) scale(.92)';
     card.classList.add('is-leaving');
-    card.animate([{transform:from==='none'?'none':from},{transform:lift,offset:.3,easing:'cubic-bezier(.4,0,1,1)'},{transform:to,opacity:0}],{duration:340,easing:'cubic-bezier(.2,0,.4,1)',fill:'forwards'});
+    card.animate([{transform:from==='none'?'none':from,opacity:1},{transform:lift,opacity:1,offset:.42,easing:'cubic-bezier(.45,0,1,.6)'},{transform:to,opacity:0}],{duration:520,easing:'cubic-bezier(.2,0,.3,1)',fill:'forwards'});
   }
-  setTimeout(()=>{session.index++;session.revealed=false;persist();busy=false;if(session.index===25)navigate('urn');else render({focus:true,scroll:false});},reduced?0:320);
+  // Reduced motion keeps the stamp as feedback, without the travel.
+  setTimeout(()=>{session.index++;session.revealed=false;persist();busy=false;if(session.index===25)navigate('urn');else render({focus:true,scroll:false});},reduced?380:500);
 }
 async function playConfirmation(){const played=await confirmationSound.play();soundBlocked=!played;if(!played){const button=document.querySelector('[data-action="repeat-sound"]');if(button)button.hidden=false;toast('O navegador bloqueou o som. Toque em Ouvir confirmação para reproduzir.');}}
 function reveal(){if(view==='result'){toast('Seu resultado já foi revelado. Você pode revisar as respostas.');return;}if(view!=='urn'||busy)return;busy=true;confirmedInSim=false;const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;const r=result();
@@ -110,15 +115,35 @@ function bindLandingMotion(){
   const preference=()=>{manualPlay=false;sync();};reduced.addEventListener('change',preference);document.addEventListener('visibilitychange',sync);
   const earlierCleanup=landingCleanup;landingCleanup=()=>{earlierCleanup?.();observer.disconnect();reduced.removeEventListener('change',preference);document.removeEventListener('visibilitychange',sync);};update();
 }
+// The answer is stamped on top of the note, in the colour of its button.
+function noteStamp(card,value){
+  let s=card.querySelector('.note-stamp');
+  if(!s||s.dataset.answer!==value){s?.remove();s=document.createElement('span');s.className=`note-stamp note-stamp-${value}`;s.dataset.answer=value;s.setAttribute('aria-hidden','true');s.textContent=ANSWERS[value].label+(value==='important'?' ×2':'');card.append(s);}
+  return s;
+}
+// Phone: size the proposal so text and context fill about 80% of the note, between 22px and 46px.
+let fitObserver=null;
+function fitProposal(){
+  const copy=document.querySelector('#proposal-card .proposal-copy');if(!copy)return;
+  const h2=copy.querySelector('h2'),context=copy.querySelector('.proposal-context');
+  if(!matchMedia('(max-width: 650px)').matches){h2.style.fontSize='';return;}
+  const room=copy.clientHeight*.8,gap=parseFloat(getComputedStyle(context).marginTop)||0;let lo=22,hi=46;
+  for(let i=0;i<8;i++){const mid=(lo+hi)/2;h2.style.fontSize=mid+'px';if(h2.offsetHeight+gap+context.offsetHeight<=room)lo=mid;else hi=mid;}
+  h2.style.fontSize=Math.floor(lo)+'px';
+}
+function bindFit(){fitObserver?.disconnect();const copy=document.querySelector('#proposal-card .proposal-copy');if(!copy)return;fitProposal();document.fonts?.ready.then(fitProposal);fitObserver=new ResizeObserver(()=>fitProposal());fitObserver.observe(copy);}
 // Touch: the note follows the finger sideways; past 80px it is answered, otherwise it settles back on the pad.
 function bindSwipe(){
   const card=document.querySelector('#proposal-card');let touch=null,dragging=false;
-  const lean=side=>document.querySelectorAll('[data-answer="agree"],[data-answer="disagree"]').forEach(b=>b.classList.toggle('is-leaning',b.dataset.answer===side));
+  // Past 40px the matching button lights up and its stamp fades in on the note, fully visible at 80px.
+  const lean=(side,dx=0)=>{document.querySelectorAll('[data-answer="agree"],[data-answer="disagree"]').forEach(b=>b.classList.toggle('is-leaning',b.dataset.answer===side));
+    if(!side){card.querySelector('.note-stamp')?.remove();return;}
+    const s=noteStamp(card,side);s.classList.add('is-preview');s.style.opacity=Math.min(1,(Math.abs(dx)-40)/40);};
   const settle=()=>{card.classList.remove('is-dragging');lean(null);card.style.transition='transform .28s cubic-bezier(.16,1,.3,1)';card.style.transform='';setTimeout(()=>{card.style.transition='';},300);};
   card.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'||busy)return;touch={x:e.clientX,y:e.clientY,id:e.pointerId};dragging=false;});
   card.addEventListener('pointermove',e=>{if(!touch||e.pointerId!==touch.id)return;const dx=e.clientX-touch.x,dy=e.clientY-touch.y;
     if(!dragging){if(Math.abs(dx)<10||Math.abs(dx)<Math.abs(dy)*1.3)return;dragging=true;card.setPointerCapture?.(e.pointerId);card.classList.add('is-dragging');}
-    card.style.transform=`translateX(${dx}px) rotate(${dx/22}deg)`;lean(dx>40?'agree':dx<-40?'disagree':null);});
+    card.style.transform=`translateX(${dx}px) rotate(${dx/22}deg)`;lean(dx>40?'agree':dx<-40?'disagree':null,dx);});
   card.addEventListener('pointerup',e=>{if(!touch)return;const dx=e.clientX-touch.x;touch=null;if(dragging&&Math.abs(dx)>80){card.classList.remove('is-dragging');answer(dx>0?'agree':'disagree');}else if(dragging)settle();dragging=false;});
   card.addEventListener('pointercancel',()=>{touch=null;if(dragging)settle();dragging=false;});
 }

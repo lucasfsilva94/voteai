@@ -361,8 +361,8 @@ h1 em,h2 em{font-style:normal}
 
 /* Sticky-note pad: the proposal is the top note, glued at its top edge. Notes behind it and the pad edge
    below show how many proposals are left; the pad thins as the answers go in. One note colour for all,
-   so no colour hints at a party. */
-:root{--note:#f4f7c8;--note-2:#ebf0b6;--note-3:#e2e9a6;--note-4:#d9e197;--note-edge:#cfd88a}
+   so no colour hints at a party. The notes are white. */
+:root{--note:#fffef9;--note-2:#f1f3ea;--note-3:#e7eadf;--note-4:#dde2d2;--note-edge:#cdd4c2}
 .note-stack{position:relative;isolation:isolate;padding-bottom:18px}
 .note-back{position:absolute;inset:0 0 18px;z-index:-1;border-radius:3px 3px 8px 8px;box-shadow:0 1px 2px rgba(23,61,47,.1),0 8px 14px -10px rgba(23,61,47,.35);transform-origin:50% 0}
 .note-back-1{background:var(--note-2);transform:translate(9px,7px) rotate(1.8deg)}
@@ -372,7 +372,7 @@ h1 em,h2 em{font-style:normal}
 .note-stack::after{content:'';position:absolute;z-index:-2;left:10px;right:10px;top:calc(100% - 19px);height:calc(var(--pad) * .75px + 2px);border-radius:0 0 6px 6px;background:repeating-linear-gradient(to bottom,var(--note-3) 0 1px,var(--note-edge) 1px 2px);box-shadow:0 7px 10px -6px rgba(23,61,47,.4)}
 .quiz-paper.note{background:var(--note);border:0;border-radius:3px 3px 8px 8px;transform:rotate(var(--tilt));transform-origin:50% 0;animation:none;transition:none;box-shadow:0 1px 1px rgba(23,61,47,.07),0 3px 6px rgba(23,61,47,.06),0 24px 22px -20px rgba(23,61,47,.5)}
 .quiz-paper.note .paper-bottom{border-top:0}
-.quiz-paper.note .proposal-copy{scrollbar-color:#b6c47e transparent;touch-action:pan-y}
+.quiz-paper.note .proposal-copy{scrollbar-color:#b9c4b1 transparent;touch-action:pan-y}
 .quiz-paper.note-rise{animation:note-rise .34s cubic-bezier(.16,1,.3,1)}
 .quiz-paper.note-return{animation:note-return .42s cubic-bezier(.16,1,.3,1)}
 .quiz-paper.note.is-dragging{cursor:grabbing;box-shadow:0 2px 3px rgba(23,61,47,.08),0 30px 30px -18px rgba(23,61,47,.5)}
@@ -396,3 +396,24 @@ h1 em,h2 em{font-style:normal}
 @media(prefers-reduced-motion:reduce){.quiz-paper.note-rise,.quiz-paper.note-return{animation:none}}
 /* A note flying off the pad must not widen the page. */
 body[data-view=quiz]{overflow-x:clip}
+/* Phone note composition: topic on top, the proposal centred in the free space, its context anchored at the
+   bottom. The proposal size is fitted per text in app.js (fitProposal); the clamp is the no-script fallback. */
+@media(max-width:650px){
+  body[data-view=quiz] .quiz-paper .proposal-copy{display:flex;flex-direction:column;padding:10px 2px 4px 0}
+  body[data-view=quiz] .quiz-paper .proposal-copy h2{margin:auto 0;line-height:1.16;letter-spacing:-.02em}
+  body[data-view=quiz] .quiz-paper .proposal-copy .proposal-context{margin-top:18px;font-size:14px;line-height:1.5;max-width:34ch}
+}
+/* White notes need an edge on the cream page: a hairline ring inside the shadow stack. */
+.quiz-paper.note{box-shadow:0 0 0 1px rgba(23,61,47,.08),0 1px 1px rgba(23,61,47,.07),0 3px 6px rgba(23,61,47,.06),0 24px 22px -20px rgba(23,61,47,.5)}
+.note-back{box-shadow:0 0 0 1px rgba(23,61,47,.08),0 1px 2px rgba(23,61,47,.1),0 8px 14px -10px rgba(23,61,47,.35)}
+.quiz-paper.note.is-dragging{box-shadow:0 0 0 1px rgba(23,61,47,.08),0 2px 3px rgba(23,61,47,.08),0 30px 30px -18px rgba(23,61,47,.5)}
+/* Answer stamp: lands on the top edge of the note with a short thud, in the colour of the answer's button. */
+.note-stamp{position:absolute;left:50%;top:-18px;z-index:3;translate:-50% 0;rotate:var(--stamp-rot,-5deg);padding:9px 20px 10px;border:3px solid var(--white);border-radius:12px;font:700 26px/1 var(--font-display);letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;pointer-events:none;box-shadow:0 8px 16px -8px rgba(23,61,47,.55);animation:stamp-in .2s cubic-bezier(.2,1.5,.4,1) both}
+.note-stamp.is-preview{animation:none}
+.note-stamp-agree{--stamp-rot:-5deg;background:var(--green);color:var(--white)}
+.note-stamp-disagree{--stamp-rot:5deg;background:var(--white);color:var(--ink);border-color:var(--ink)}
+.note-stamp-important{--stamp-rot:-3deg;background:var(--electric-lime);color:var(--ink)}
+.note-stamp-skip{--stamp-rot:4deg;background:var(--sage);color:var(--ink)}
+@keyframes stamp-in{from{scale:1.7;opacity:0}to{scale:1;opacity:1}}
+@media(max-width:650px){.note-stamp{font-size:22px;top:-14px;padding:8px 16px 9px}}
+@media(prefers-reduced-motion:reduce){.note-stamp{animation:none}}

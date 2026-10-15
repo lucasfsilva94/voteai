@@ -22,11 +22,11 @@ colors:
   choice-hover: "#edf1e5"
   lime-hover: "#d5e7a9"
   focus: "#63872d"
-  note: "#f4f7c8"
-  note-2: "#ebf0b6"
-  note-3: "#e2e9a6"
-  note-4: "#d9e197"
-  note-edge: "#cfd88a"
+  note: "#fffef9"
+  note-2: "#f1f3ea"
+  note-3: "#e7eadf"
+  note-4: "#dde2d2"
+  note-edge: "#cdd4c2"
 typography:
   display:
     fontFamily: "'Fredoka', 'Rubik', sans-serif"
@@ -277,11 +277,13 @@ Badges são informativos. A resposta registrada tem borda suave, raio de badge e
 
 ### Cards / Containers
 
-**Bloco de post-its.** A proposta é a nota de cima de um bloco adesivo. A nota usa `note`, sem borda, cantos `rounded.note` e uma inclinação leve que varia entre (-0.7deg) e (0.8deg) de uma nota para outra; fica colada no topo (`transform-origin` no alto) e a sombra mais longa embaixo dá a impressão da base solta. Uma só cor para todas as notas, para que nenhuma lembre um partido. Seu cabeçalho reúne tema e autoria oculta; a proposta ocupa o centro; o contexto usa tinta suave; o rodapé não tem divisor.
+**Bloco de post-its.** A proposta é a nota de cima de um bloco adesivo. A nota é branca (`note`), contornada só por um anel de (1px) a 8% de tinta dentro da sombra, sem borda, cantos `rounded.note` e uma inclinação leve que varia entre (-0.7deg) e (0.8deg) de uma nota para outra; fica colada no topo (`transform-origin` no alto) e a sombra mais longa embaixo dá a impressão da base solta. Uma só cor para todas as notas, para que nenhuma lembre um partido. Seu cabeçalho reúne tema e autoria oculta; a proposta ocupa o centro; o contexto usa tinta suave; o rodapé não tem divisor.
 
 Atrás dela aparecem até três notas (`note-2`, `note-3`, `note-4`), deslocadas e giradas para os lados, e, sob o bloco, a espessura do bloco: uma linha fina por nota restante (0.75px cada, em `note-edge`). As notas de trás somem quando faltam três, duas e uma proposta, e a espessura afina a cada resposta. O bloco reserva (18px) abaixo da nota, ou (16px) no celular, para que os botões não mudem de lugar.
 
-Ao responder, a nota descola: a base se levanta (`rotateX` de 24deg em perspectiva) no primeiro terço e a nota sai na direção da resposta (concordância à direita, discordância à esquerda, importância para cima, dúvida para baixo) em (340ms), via Web Animations. A nota seguinte sobe da posição da primeira nota de trás para o topo em (.34s). Voltar traz a nota anterior de volta ao bloco, entrando pela esquerda em (.42s). No toque, a nota segue o dedo na horizontal, inclinando conforme o arraste; passado (40px), o botão correspondente se destaca; passado (80px), a resposta é registrada; antes disso, a nota volta ao lugar. O texto da proposta rola só na vertical (`touch-action: pan-y`) para não roubar o gesto. Com movimento reduzido, a nota troca sem deslocamento. A carta de demonstração da landing usa a mesma cor e os mesmos cantos.
+Ao responder, um selo com o nome da resposta bate no topo da nota, meio para fora da borda: CONCORDO em verde profundo com texto marfim, DISCORDO em marfim com borda e texto em tinta, IMPORTANTE ×2 em lima elétrico e NÃO SEI em sálvia, todos em Fredoka (700) maiúscula de (26px), ou (22px) no celular, com borda marfim de (3px), raio de (12px) e inclinação própria entre (-5deg) e (5deg). O selo entra em (.2s), descendo de escala 1.7 para 1. Ao mesmo tempo, a nota descola: a base se levanta em perspectiva até cerca de 42% da animação, com ângulo de 6 a 16 graus que diminui em notas mais altas para não cobrir os botões, e então a nota sai, ainda com o selo, na direção da resposta (concordância à direita, discordância à esquerda, importância para cima, dúvida para baixo). A saída leva (520ms), via Web Animations, e a transparência só começa depois do descolamento, para o selo ficar legível. A nota seguinte sobe da posição da primeira nota de trás para o topo em (.34s). Voltar traz a nota anterior de volta ao bloco, entrando pela esquerda em (.42s). No toque, a nota segue o dedo na horizontal, inclinando conforme o arraste; passado (40px), o botão correspondente se destaca e o selo da resposta aparece na nota, ficando opaco aos (80px); passado (80px), a resposta é registrada; antes disso, a nota volta ao lugar. O texto da proposta rola só na vertical (`touch-action: pan-y`) para não roubar o gesto. Com movimento reduzido, o selo aparece por (380ms) e a nota troca sem deslocamento. A carta de demonstração da landing usa a mesma cor e os mesmos cantos.
+
+**Composição no celular.** O tema e a autoria ficam no topo, a proposta fica centralizada no espaço livre e o contexto fica ancorado na base, em (14px). O tamanho da proposta é ajustado a cada texto e a cada tela (`fitProposal` em `dist/app.js`), entre (22px) e (46px), para que proposta e contexto ocupem cerca de 80% da área de texto. A conta é refeita quando a nota muda de tamanho. Sem JavaScript, vale `clamp(23px,3.9dvh,32px)`. O desktop mantém (31px).
 
 ### Inputs / Fields
 
