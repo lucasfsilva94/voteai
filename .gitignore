@@ -1,0 +1,40 @@
+# Dependências
+node_modules/
+
+# Materiais de referência e capturas locais
+.reference/
+
+# Ferramentas de IA, design e agentes
+.claude/
+.openai/
+.impeccable/
+.taste-skill/
+.codex/
+.cursor/
+AGENTS.md
+CLAUDE.md
+
+# Saídas e caches do Hyperframes
+media/**/.hyperframes/
+media/**/.thumbnails/
+media/**/renders/
+
+# Resultados de testes e ferramentas de navegador
+test-results/
+playwright-report/
+coverage/
+*.log
+
+# Pacotes e arquivos temporários
+*.zip
+*.tar.gz
+*.tmp
+.env
+.env.*
+
+# Sistema operacional e editores
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

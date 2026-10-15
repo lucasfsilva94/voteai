@@ -1,0 +1,16 @@
+{
+  "name": "voteai",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "start": "node scripts/serve.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:browser": "node scripts/verify-browser.mjs",
+    "test:layout": "node tests/layout.browser.mjs",
+    "test:animation": "node tests/animation.browser.mjs",
+    "test:video": "node tests/video.browser.mjs"
+  },
+  "devDependencies": { "playwright": "^1.56.0" }
+}
