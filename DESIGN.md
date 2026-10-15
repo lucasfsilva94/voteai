@@ -155,7 +155,9 @@ Fraunces traz voz às ideias; DM Sans torna ações, contexto e números fáceis
 - Verde profundo para tinta, ações e progresso.
 - Tipografia editorial para ideias; sans serif para operação.
 - Cartas de altura estável com rolagem interna para leitura de propostas longas.
-- Urna física com LCD e teclado como assinatura da revelação.
+- No celular, a votação inteira cabe em uma tela, sem rolagem da página.
+- Urna física com LCD e teclado como assinatura da revelação: ela digita o número dígito a dígito antes de confirmar.
+- Símbolo "Urna": a fenda de uma urna sobre o sinal de confirmação.
 - Movimento curto, direcional e dispensável com preferência por movimento reduzido.
 
 ## Colors
@@ -193,9 +195,9 @@ A paleta usa verdes naturais sobre papel morno, com contraste firme e um acento 
 
 ### Hierarchy
 
-- **Display:** título principal fluido, com peso (600), entrelinha (1.08) e espaçamento negativo. No celular, usa `clamp(48px,11.5vw,68px)`; abaixo de (360px), o tamanho é (46px).
+- **Display:** título principal fluido, com peso (600), entrelinha (1.04) e espaçamento negativo. No celular, a landing usa `clamp(37px,10.6vw,46px)` e entrelinha (1.06), para que título, botão e carta de demonstração caibam na primeira tela.
 - **Headline:** cabeçalhos de seção em Fraunces; a base documentada é a seção explicativa. Outras hierarquias reais usam (31px), (32px), (36px), (42px), (49px) ou (62px) conforme função.
-- **Proposal:** ideia durante o teste; no celular passa a (28px), entrelinha (1.24), e abaixo de (360px) a (25px). A carta de demonstração tem tamanho próprio de (29px).
+- **Proposal:** ideia durante o teste, (31px) no desktop; no celular acompanha a altura da tela com `clamp(23px,3.9dvh,32px)` e entrelinha (1.24). A carta de demonstração tem tamanho próprio de (29px), reduzido a (21px) na landing do celular.
 - **Title:** títulos operacionais dos passos em DM Sans, sem competir com a proposta.
 - **Body:** texto global; contextos locais variam entre (12px) e (17px). Descrições usam `muted`, entrelinhas generosas e medidas observadas de (30ch), (40ch), (50ch), (70ch) ou (75ch) conforme o bloco.
 - **Label:** referência de botões e respostas; metadados usam tamanhos menores. Percentuais e progresso usam numerais tabulares. O LCD e o teclado permanecem em DM Sans, com tamanhos proporcionais ao aparelho.
@@ -206,7 +208,11 @@ A paleta usa verdes naturais sobre papel morno, com contraste firme e um acento 
 
 A página é fluida, com largura máxima (1184px) e margem total inicial de (96px). Abaixo de (1100px), a margem total passa a (64px); abaixo de (650px), a (40px); abaixo de (360px), a (32px). Cabeçalho, conteúdo e rodapé compartilham o alinhamento central.
 
-A apresentação inicial usa duas colunas assimétricas (`1.05fr 1fr`) sobre verde profundo, espaço de (80px) entre elas e carta dominante. O título marfim usa lime elétrico na segunda ideia; o CTA usa lime elétrico e tinta verde. No celular, abaixo de (650px), torna-se uma coluna. O teste concentra leitura em um contêiner de até (640px), com quatro respostas em grade de duas colunas e altura mínima de (59px), reduzida a (55px) no celular. A carta mantém altura de 360px no desktop e 350px abaixo de 650px. Cabeçalho e rodapé permanecem fixos; a região interna de texto rola. Assim as quatro respostas mantêm coordenadas estáveis entre perguntas.
+A apresentação inicial usa duas colunas assimétricas (`1.05fr 1fr`) sobre verde profundo, espaço de (80px) entre elas e carta dominante. O título marfim usa lime elétrico na segunda ideia; o CTA usa lime elétrico e tinta verde. No celular, abaixo de (650px), torna-se uma coluna compacta: título, uma frase de apoio, botão em largura total e a carta de demonstração com as quatro respostas cabem na primeira tela; o cabeçalho da carta, o contexto e o rodapé da demonstração ficam ocultos. Quando o botão principal sai de vista, um botão fixo "Começar meu teste" aparece na base da tela e some ao chegar à chamada final.
+
+O teste concentra leitura em um contêiner de até (640px), com quatro respostas em grade de duas colunas e altura mínima de (59px). No desktop, a carta mantém altura de (360px); a região interna de texto rola, e as quatro respostas mantêm coordenadas estáveis entre perguntas.
+
+No celular, a votação ocupa exatamente uma tela (`100dvh`), sem rolagem da página: cabeçalho de (52px) só com a marca e Salvar e sair, linha de progresso, carta flexível que ocupa o espaço restante e as quatro respostas em 2×2, com altura `clamp(48px,7.2dvh,58px)` e respiro inferior para a área segura. Etapas, título da página, textos de ajuda, rodapé da carta e rodapé do site ficam ocultos; o ×2 de Importante carrega a explicação. O texto longo continua rolando dentro da carta. A página da urna segue a mesma regra: o aparelho fica em coluna, com o visor em cima e o teclado embaixo (números à esquerda, BRANCO, CORRIGE e CONFIRMA empilhados à direita); em telas com menos de (700px) de altura, o título e o visor diminuem.
 
 O resultado usa duas colunas, aparelho e resumo; abaixo de (850px), empilha com o resumo primeiro. A tabela de temas passa de duas colunas para uma abaixo de (650px). Fontes e revisão usam linhas expansíveis com tema, proposta e controles; no celular, o tema sobe para sua própria linha. As colunas do método tornam-se uma abaixo de (850px).
 
@@ -214,7 +220,7 @@ Os intervalos recorrentes no frontmatter registram medidas usadas, sem presumir 
 
 ## Elevation & Depth
 
-A leitura usa contraste tonal, bordas e camadas de papel. A demonstração inclina a folha frontal (-2.5deg) e a folha traseira (3deg); o teste apresenta a carta reta e delimitada. A urna é a exceção material: sombras externas e internas dão corpo à carcaça, reentrância ao LCD e pressão às teclas. Os valores completos de sombra estão no sidecar.
+A leitura usa contraste tonal, bordas e camadas de papel. A demonstração inclina a folha frontal (-2.5deg) e a folha traseira (3deg); o teste apresenta a carta reta e delimitada. A urna é a exceção material: sombras externas e internas dão corpo à carcaça, reentrância ao LCD e pressão às teclas. Os valores completos de sombra estão em `dist/styles.css`.
 
 ### Shadow Vocabulary
 
@@ -228,7 +234,7 @@ A leitura usa contraste tonal, bordas e camadas de papel. A demonstração incli
 
 ## Shapes
 
-As superfícies têm curvas suaves e distintas: carta, palco, botão, resposta, campo e badge seguem os raios normativos do frontmatter. O símbolo da marca é um quadrado verde com confirmação; seu raio é (10px), reduzido a (8px) no celular. Etapas e indicadores usam círculos pequenos.
+As superfícies têm curvas suaves e distintas: carta, palco, botão, resposta, campo e badge seguem os raios normativos do frontmatter. O símbolo da marca, "Urna", é desenhado numa grade de (64px): quadrado verde de raio (15px), a fenda lima de (30×5.5px) no topo e o sinal de confirmação lima com traço de (7px). Ele aparece com (35px) no cabeçalho, (30px) no celular, (27px) no teste e na urna do celular e (26px) no rodapé, sempre ao lado do nome em DM Sans ("vote" em negrito, "AI" regular). O favicon é o mesmo SVG; o ícone de toque (`apple-touch-icon.png`, 180px) usa fundo verde sem cantos. As versões horizontal, vertical, só ícone e monocromáticas, com o guia de uso, estão em `brand/logos/`. Etapas e indicadores usam círculos pequenos.
 
 A urna tem silhueta própria, com cantos inferiores maiores, visor retangular emoldurado, teclado escuro e teclas curtas. Não normalize o aparelho para o raio dos cartões. As barras de resultado são finas e os divisores têm espessura de (1px).
 
@@ -254,7 +260,7 @@ A busca tem borda fina, raio de campo, ícone de linha e fundo transparente. O f
 
 ### Navigation
 
-Navegação discreta em DM Sans, tamanho (14px), peso (500), com sublinhado em hover. No teste, a ação é Salvar e sair. No celular, o link da explicação inicial some, os intervalos diminuem e a marca mantém presença. A indicação de etapas usa círculos numerados, confirmação e verde para progresso; não depende apenas da cor.
+Navegação discreta em DM Sans, tamanho (14px), peso (500), com sublinhado em hover. No teste, a ação é Salvar e sair. No celular, o link da explicação inicial some, os intervalos diminuem e a marca mantém presença; no teste e na urna, o rótulo Brasil 2026 também some. A indicação de etapas usa círculos numerados, confirmação e verde para progresso; não depende apenas da cor.
 
 ### Response Controls
 
@@ -262,13 +268,21 @@ Discordo é claro; Concordo é verde; Importante é lima e mostra ×2; Não sei 
 
 ### Brazilian Voting Machine
 
-A assinatura da revelação é um corpo marfim com tela LCD verde clara e teclado carvão. O visor mostra espera explícita, apuração e resultado. A última resposta inicia automaticamente a apuração; CONFIRMA acende sem exigir um clique adicional. A barra progride em (2.3s) e a interface conclui em (2.4s). A pessoa pode pular a animação. Empate e ausência de dados usam estados textuais próprios, sem fabricar vencedor. Retratos aparecem após a revelação, em cinza, com dimensões e enquadramentos equivalentes.
+A assinatura da revelação é um corpo marfim com tela LCD verde clara e teclado carvão. A última resposta inicia automaticamente uma simulação de voto, sem clique adicional, como numa urna de verdade:
 
-Com `prefers-reduced-motion: reduce`, CSS reduz animações e transições a (.001ms), a saída da carta permanece estável e JavaScript avança/revela sem espera. O som real de confirmação inicia habilitado e é preparado na interação com o teste. A pessoa pode silenciá-lo. Bloqueio do navegador mantém o resultado e oferece reprodução por clique.
+1. O visor mostra "SEU VOTO PARA Presidente" e dois campos de dígito vazios, com cursor piscando no primeiro.
+2. Em (0.9s), a tecla do primeiro dígito afunda e o número entra no campo; em (1.8s), o segundo. Cada tecla toca um bipe curto, sintetizado e sujeito ao controle de som.
+3. Em (2.5s), surgem o retrato em cinza, o nome e o partido do candidato com maior afinidade.
+4. Em (3.7s), CONFIRMA afunda, toca o som real de confirmação e o visor mostra FIM.
+5. Em (5.3s), a interface avança para o resultado.
+
+Os campos de dígito medem (40×50px) no desktop e (36×46px) no celular; FIM usa (64px), ou (54px) no celular. A pessoa pode pular a animação a qualquer momento. Empate e ausência de dados não digitam número: mostram a apuração com barra de progresso em (2.4s) e estados textuais próprios, sem fabricar vencedor. Retratos aparecem só nesta etapa, em cinza, com dimensões e enquadramentos equivalentes.
+
+Com `prefers-reduced-motion: reduce`, CSS reduz animações e transições a (.001ms), o cursor do visor para de piscar, a saída da carta permanece estável e JavaScript revela o resultado sem a simulação. O som real de confirmação inicia habilitado e é preparado na interação com o teste. A pessoa pode silenciá-lo. Bloqueio do navegador mantém o resultado e oferece reprodução por clique.
 
 ### Landing animada e vídeo
 
-A primeira região combina verde profundo, headline editorial marfim e lime elétrico. A carta real mantém quatro ações funcionais; folhas e estrela têm deriva discreta coordenada. Os passos explicativos revelam por observação de interseção, com conteúdo disponível mesmo sem movimento. A chamada final usa a superfície lime.
+A primeira região combina verde profundo, headline editorial marfim e lime elétrico. A frase de apoio diz o que acontece em uma linha: 25 propostas reais, sem o nome de quem as fez, e no fim a afinidade com Lula ou Flávio Bolsonaro. A carta real mantém quatro ações funcionais; folhas e estrela têm deriva discreta coordenada. No celular, o botão fixo de começar entra deslizando de baixo, sobre fundo papel quase opaco. Os passos explicativos revelam por observação de interseção, com conteúdo disponível mesmo sem movimento. A chamada final usa a superfície lime.
 
 O vídeo Hyperframes usa quadro 16:9 de 1280×720, duração de 18s, textos em português e nenhuma locução. Reproduz silenciosamente em loop com pausar, repetir e tela cheia. Movimento reduzido mostra poster estático e preserva controle de reproduzir. O texto fora do vídeo mantém o mecanismo acessível. Identidades partidárias só aparecem no beat de revelação.
 
@@ -278,6 +292,8 @@ O vídeo Hyperframes usa quadro 16:9 de 1280×720, duração de 18s, textos em p
 
 - **Do** preserve papel claro, verde profundo e a relação Fraunces/DM Sans em novas superfícies.
 - **Do** preserve a altura das cartas e permita rolagem interna do texto longo sem mover os botões.
+- **Do** mantenha a votação e a urna do celular dentro de uma tela; se faltar espaço, retire informação do topo antes de deixar a página rolar.
+- **Do** use o símbolo "Urna" a partir dos arquivos de `brand/logos/`, sem redesenhar.
 - **Do** mantenha o foco visível, controles rotulados e respostas distinguíveis por texto e ícone.
 - **Do** use a mesma estrutura e o mesmo tratamento de retrato para os candidatos.
 - **Do** mantenha estados explícitos para espera, apuração, empate, ausência de dados e busca vazia.

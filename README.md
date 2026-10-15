@@ -21,7 +21,7 @@
   <img alt="Demonstração do voteAI no computador e no celular" src="docs/media/voteai-demo.gif" width="896"/>
 </p>
 
-<p align="center"><a href="docs/media/voteai-demo.mp4">Assistir em MP4 (1280×720)</a> · <a href="https://lucasfsilva94.github.io/voteai/">Abrir o site</a></p>
+<p align="center"><a href="https://lucasfsilva94.github.io/voteai/">Abrir o site</a></p>
 
 ## ⚙️ Funcionalidades
 
