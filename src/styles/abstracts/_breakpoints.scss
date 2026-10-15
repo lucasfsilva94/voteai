@@ -1,0 +1,30 @@
+@use 'sass:map';
+
+// The layout is desktop-first: most rules adapt below a width, one widens above it.
+$breakpoints: (
+  'xs': 360px,
+  'sm': 650px,
+  'md': 850px,
+  'lg': 1100px,
+  'xl': 1600px,
+);
+
+@function breakpoint($name) {
+  @if not map.has-key($breakpoints, $name) {
+    @error 'Unknown breakpoint: #{$name}. Expected one of #{map.keys($breakpoints)}.';
+  }
+
+  @return map.get($breakpoints, $name);
+}
+
+@mixin below($name) {
+  @media (max-width: breakpoint($name)) {
+    @content;
+  }
+}
+
+@mixin above($name) {
+  @media (min-width: breakpoint($name)) {
+    @content;
+  }
+}

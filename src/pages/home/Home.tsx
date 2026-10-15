@@ -10,7 +10,7 @@ import { Hero } from './Hero.tsx'
 import { HowItWorks } from './HowItWorks.tsx'
 import { Strip } from './Strip.tsx'
 import { useReveal, useStickyCta } from './useLandingMotion.ts'
-import './Home.css'
+import './Home.scss'
 
 export default function Home() {
   const { session, start, resumePath } = useSession()

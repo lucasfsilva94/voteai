@@ -45,7 +45,7 @@ Este projeto foi desenvolvido com as seguintes tecnologias:
    * [React Router](https://reactrouter.com/): rotas sem `#` (`/teste`, `/urna`, `/resultado`, `/fontes`)
    * [TypeScript](https://www.typescriptlang.org/): catálogo, regras e componentes tipados
    * [Vite](https://vite.dev/): servidor de desenvolvimento e build, com o código dividido por rota
-   * [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS): um arquivo por componente, com os tokens em `src/styles/`
+   * [Sass](https://sass-lang.com/) (SCSS): um arquivo por componente, com os tokens em `src/styles/` e os breakpoints e mixins em `src/styles/abstracts/`
    * [Web Audio API](https://developer.mozilla.org/pt-BR/docs/Web/API/Web_Audio_API): som de confirmação da urna e bipe das teclas
    * [Web Animations API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API): notas descolando e saindo do bloco
    * [Web Storage](https://developer.mozilla.org/pt-BR/docs/Web/API/Web_Storage_API): respostas salvas só no aparelho
@@ -87,7 +87,7 @@ Abra http://localhost:5173/voteai/. Para gerar e conferir a versão publicada, u
 npm test
 ```
 
-Os testes cobrem o cálculo, a seleção equilibrada, empates, respostas insuficientes, armazenamento bloqueado e o som da urna. Os testes de navegador (`npm run test:browser`, `npm run test:layout`, `npm run test:animation`, `npm run test:video`) usam o Google Chrome instalado e rodam contra o build: deixe `npm run preview` aberto em outro terminal.
+Os testes cobrem o cálculo, a seleção equilibrada, empates, respostas insuficientes, armazenamento bloqueado e o som da urna. Os testes de navegador (`npm run test:browser`, `npm run test:layout`, `npm run test:animation`, `npm run test:video`) usam o Google Chrome instalado e rodam contra o build: deixe `npm run preview` aberto em outro terminal. Para refatorar estilos sem mudar o visual, `npm run test:styles -- antes.json` guarda o estilo computado de cada elemento em todas as rotas e larguras; depois da mudança, gere `depois.json` e compare com `npm run test:styles -- --diff antes.json depois.json`.
 
 ## 🎬 Vídeo de demonstração
 
@@ -117,7 +117,7 @@ src/
   hooks/           título, foco e rolagem de cada página
   lib/             regras puras: cálculo, seleção, sessão, som e tipos
   data/            catálogo de 50 propostas, textos da página inicial e retratos
-  styles/          tokens de cor e tipo e estilos base
+  styles/          tokens de cor e tipo, estilos base e abstracts/ (breakpoints e mixins do Sass)
   assets/          fontes, retratos, som da urna e vídeo explicativo
 tests/             regras (Vitest) e navegador (Playwright)
 brand/             logo aprovado (logo/) com guia de uso e conceitos explorados (explorations/)

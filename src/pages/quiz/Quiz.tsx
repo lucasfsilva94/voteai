@@ -12,7 +12,7 @@ import { prefersReducedMotion, usePage } from '../../hooks/usePage.ts'
 import { useSession } from '../../state/session.tsx'
 import { useProposalFit } from './useProposalFit.ts'
 import { useSwipe } from './useSwipe.ts'
-import './Quiz.css'
+import './Quiz.scss'
 
 const TILTS = [-0.7, 0.5, -0.3, 0.8, -0.5, 0.35]
 const KEYS: Record<string, Answer> = { ArrowLeft: 'disagree', ArrowRight: 'agree', ArrowUp: 'important', ArrowDown: 'skip' }

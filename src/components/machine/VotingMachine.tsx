@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import './VotingMachine.css'
+import './VotingMachine.scss'
 
 type Props = {
   /** What the LCD shows (simulation steps, counting or the final result). */

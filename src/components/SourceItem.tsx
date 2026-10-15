@@ -2,7 +2,7 @@ import { THEME_ICONS } from '../lib/catalog.ts'
 import { ANSWERS, AREAS, CANDIDATES } from '../lib/engine.ts'
 import type { Answer, Proposal } from '../lib/types.ts'
 import { Icon } from './Icon.tsx'
-import './SourceItem.css'
+import './SourceItem.scss'
 
 const POSITION_LABEL = { concorda: 'A favor', discorda: 'Contra', 'sem-posicao': 'Sem posição' } as const
 

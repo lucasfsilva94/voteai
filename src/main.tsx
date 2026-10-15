@@ -2,8 +2,8 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router'
 // Global styles first, so each component's stylesheet comes after them in the cascade.
-import './styles/tokens.css'
-import './styles/base.css'
+import './styles/tokens.scss'
+import './styles/base.scss'
 import { App } from './App.tsx'
 
 const BASE = import.meta.env.BASE_URL

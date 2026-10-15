@@ -11,7 +11,7 @@ import { usePage } from '../../hooks/usePage.ts'
 import { useSession } from '../../state/session.tsx'
 import { useToast } from '../../state/toast.tsx'
 import { useUrnSimulation, type UrnState } from './useUrnSimulation.ts'
-import './Urn.css'
+import './Urn.scss'
 
 // Laid out like the real urn: office on top, number on the left, name and party under it, portrait on the right.
 function SimulationScreen({ state, winner }: { state: UrnState; winner: 'A' | 'B' | null }) {

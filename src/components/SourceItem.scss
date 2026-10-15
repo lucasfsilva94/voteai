@@ -1,0 +1,168 @@
+@use '../styles/abstracts' as *;
+
+.source-item {
+  border-top: 1px solid var(--line);
+
+  &:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+
+  summary {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 160px 1fr auto 20px;
+    gap: 18px;
+    align-items: center;
+    cursor: pointer;
+    padding: 21px 0;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+}
+
+.source-topic {
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+}
+
+.source-item summary > strong {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.details-plus {
+  font-size: 23px;
+  text-align: center;
+  line-height: 1;
+  transition: transform 0.2s;
+}
+
+.source-item {
+  &[open] .details-plus {
+    transform: rotate(45deg);
+  }
+
+  summary:hover > strong {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+}
+
+.answer-badge {
+  font-size: 10px;
+  border: 1px solid #becbb3;
+  padding: 3px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.source-body {
+  padding: 0 38px 24px 178px;
+
+  > p {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+}
+
+.positions {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+  font-size: 11px;
+
+  strong {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 3px;
+  }
+}
+
+.source-link {
+  font-size: 10px;
+  display: block;
+  margin-top: 9px;
+  line-height: 1.65;
+}
+
+.sources-page .source-item summary {
+  grid-template-columns: 160px 1fr 20px;
+}
+
+@include below(md) {
+  .source-item summary {
+    grid-template-columns: 115px 1fr auto 20px;
+    gap: 12px;
+  }
+
+  .sources-page .source-item summary {
+    grid-template-columns: 115px 1fr 20px;
+  }
+
+  .source-body {
+    padding-left: 127px;
+  }
+}
+
+@include below(sm) {
+  .source-item summary {
+    grid-template-columns: 1fr auto 15px;
+    gap: 8px;
+    padding: 19px 0;
+  }
+
+  .source-topic {
+    grid-column: 1/-1;
+    font-size: 9px;
+  }
+
+  .source-item summary > strong {
+    font-size: 12px;
+  }
+
+  .answer-badge {
+    font-size: 8px;
+    padding: 3px 5px;
+  }
+
+  .details-plus {
+    font-size: 19px;
+  }
+
+  .source-body {
+    padding: 0 0 20px;
+
+    > p {
+      font-size: 12px;
+    }
+  }
+
+  .positions {
+    font-size: 10px;
+    gap: 24px;
+  }
+
+  .source-link {
+    font-size: 9px;
+  }
+
+  .sources-page {
+    .source-item {
+      summary {
+        grid-template-columns: 1fr 15px;
+      }
+
+      .source-topic {
+        grid-column: 1/-1;
+      }
+    }
+  }
+}

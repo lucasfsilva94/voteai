@@ -11,7 +11,7 @@ import type { AreaId, Result as ResultData, Session } from '../../lib/types.ts'
 import { prefersReducedMotion, usePage } from '../../hooks/usePage.ts'
 import { useSession } from '../../state/session.tsx'
 import { useToast } from '../../state/toast.tsx'
-import './Result.css'
+import './Result.scss'
 
 function ResultScreen({ r }: { r: ResultData }) {
   if (r.status !== 'winner' || !r.winner)
